@@ -1,0 +1,40 @@
+@media (max-width: 700px) {
+    nav {
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    section {
+        padding: 4rem 1.25rem;
+    }
+
+    #hero {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}

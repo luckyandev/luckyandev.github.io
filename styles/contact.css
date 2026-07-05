@@ -1,0 +1,41 @@
+#contact {
+    text-align: center;
+}
+
+.contact-subtitle {
+    font-size: 1rem;
+    color: var(--text2);
+    margin-bottom: 2.5rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    transition: all var(--transition);
+    background: var(--bg2);
+}
+
+.contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--tag-bg);
+}
+
+.contact-link svg {
+    width: 20px;
+    height: 20px;
+}
