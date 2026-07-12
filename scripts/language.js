@@ -10,12 +10,22 @@ async function loadContent(lang) {
     const content = lang === 'en' ? window.CONTENT_EN : window.CONTENT_ES;
     if (!content) return;
 
-    // Actualizar todos los elementos con data-i18n
+    // Traduccion del texto
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (content[key]) {
             el.textContent = content[key];
         }
+    });
+
+    // Traducción de tooltips
+    document.querySelectorAll('[data-tooltip-en]').forEach(el => {
+        el.setAttribute(
+            'data-tooltip',
+            lang === 'en'
+                ? el.dataset.tooltipEn
+                : el.dataset.tooltipEs || el.dataset.tooltip
+        );
     });
 
     document.documentElement.lang = lang;

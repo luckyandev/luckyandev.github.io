@@ -1,21 +1,20 @@
 /* ============================================================
-   CONTENT-EN.JS — Content in English
+    CONTENT-EN.JS - Content in English
    ============================================================ */
-
 window.CONTENT_EN = {
     /* NAV */
-    "nav.inicio": "Home",
-    "nav.sobre": "About",
-    "nav.experiencia": "Experience",
+    "nav.hero": "Home",
+    "nav.about": "About",
+    "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.skills": "Skills",
     "nav.certificates": "Certificates",
-    "nav.contacto": "Contact",
-    "nav.contactar": "Contact me",
+    "nav.contact": "Contact",
 
     /* HERO */
-    "hero.saludo": "Hi there! 👋",
-    "hero.desc": "Backend Developer with a DAM degree, passionate about building clean and efficient software. Experienced with hexagonal architecture, REST APIs and professional development tools. Based in Madrid, open to on-site, remote or hybrid opportunities.",
+    "hero.saludo": "Hi there!👋",
+    "hero.desc": "Backend Developer specialized in Java, with a Higher Vocational Degree (DAM). Passionate about building clean, efficient and maintainable software, with experience in Hexagonal Architecture, REST APIs and development tools such as Git, Bitbucket and Jira. Based in Madrid and open to on-site, hybrid or remote opportunities.",
+    "hero.status": "Available for work",
     "hero.scroll": "Scroll to explore",
 
     /* ABOUT */

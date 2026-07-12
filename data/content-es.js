@@ -1,21 +1,20 @@
 /* ============================================================
-    CONTENT-ES.JS — Contenido en español
+    CONTENT-ES.JS - Contenido en español
    ============================================================ */
-
 window.CONTENT_ES = {
     /* NAV */
-    "nav.inicio": "Inicio",
-    "nav.sobre": "Sobre mí",
-    "nav.experiencia": "Experiencia",
+    "nav.hero": "Inicio",
+    "nav.about": "Sobre mí",
+    "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",
     "nav.skills": "Skills",
     "nav.certificates": "Certificados",
-    "nav.contacto": "Contacto",
-    "nav.contactar": "Contactar",
+    "nav.contact": "Contacto",
 
     /* HERO */
-    "hero.saludo": "Hola a todos! 👋",
-    "hero.desc": "Desarrollador Backend con formación en DAM, apasionado por construir software limpio y eficiente. Experiencia con arquitectura hexagonal, APIs REST y herramientas profesionales del sector. Basado en Madrid, abierto a oportunidades presenciales, remotas o híbridas.",
+    "hero.saludo": "Hola!👋",
+    "hero.desc": "Desarrollador Backend especializado en Java, con formación en DAM. Apasionado por crear software limpio y eficiente, con experiencia en arquitectura hexagonal, APIs REST y herramientas de desarrollo como Jira, Git y Bitbucket. Residente en Madrid, abierto a oportunidades presenciales, remotas o híbridas.",
+    "hero.status": "Disponible para trabajar",
     "hero.scroll": "Scroll para explorar",
 
     /* ABOUT */
