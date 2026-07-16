@@ -1,12 +1,11 @@
 /* ==========================================================
     NAVBAR - styles/navbar.css
-    ES: Estilos de la barra de navegación flotante superior
-    EN: Styles for the top floating navigation bar
-========================================================== */
-/* ----------------------------------------------------------
-    ES: Contenedor principal del nav
-    EN: Main navigation container
----------------------------------------------------------- */
+    ES: Estilos de la barra de navegación flotante superior.
+    EN: Styles for the top floating navigation bar.
+   ========================================================== */
+    
+/* ES: Contenedor principal del nav.
+    EN: Main navigation container. */
 nav {
     position: fixed;
     top: 18px;
@@ -28,9 +27,7 @@ nav {
     transition: all .35s ease;
 }
 
-/* ----------------------------------------------------------
-    ES/EN: Logo
----------------------------------------------------------- */
+/* ES/EN: Logo. */
 .nav-logo{
     display:flex;
     align-items:center;
@@ -42,9 +39,7 @@ nav {
     object-fit:contain;
 }
 
-/* ----------------------------------------------------------
-    ES/EN: Nav Links
----------------------------------------------------------- */
+/* ES/EN: Nav Links. */
 .nav-links{
     position:absolute;
     left:50%;
@@ -92,10 +87,8 @@ nav {
     width:calc(100% - 1.3rem);
 }
 
-/* ----------------------------------------------------------
-    ES: Botones derecha (idioma, tema y hamburger)
-    EN: Right side buttons (language, theme and hamburger)
----------------------------------------------------------- */
+/* ES: Botones derecha (idioma, tema y hamburger).
+   EN: Right side buttons (language, theme and hamburger). */
 .nav-right{
     display:flex;
     align-items:center;
@@ -151,20 +144,16 @@ nav {
     box-shadow: 0 6px 18px rgba(79,142,247,.12), var(--hover-glow);
 }
 
-/* ----------------------------------------------------------
-    ES: Botón idioma activo
-    EN: Active language button
----------------------------------------------------------- */
+/* ES: Botón idioma activo.
+   EN: Active language button. */
 #langToggle.active{
     color:var(--accent);
     border-color:rgba(79,142,247,.35);
     background: linear-gradient(135deg, rgba(79,142,247,.12), rgba(124,58,237,.10));
 }
 
-/* ----------------------------------------------------------
-    ES: Animación iconos
-    EN: Icon animations
----------------------------------------------------------- */
+/* ES: Animación iconos.
+   EN: Icon animations. */
 .theme-btn svg,
 #hamburger svg{
     transition: transform .3s ease, opacity .25s ease;
@@ -176,10 +165,8 @@ nav {
     transform:rotate(90deg);
 }
 
-/* ----------------------------------------------------------
-    ES: Menú móvil (links)
-    EN: Mobile menu (links)
----------------------------------------------------------- */
+/* ES: Menú móvil (links).
+   EN: Mobile menu (links). */
 #mobileMenu{
     position:fixed;
     inset:0;
@@ -215,9 +202,7 @@ nav {
     transform:translateY(-2px);
 }
 
-/* ----------------------------------------------------------
-    ES/EN: Responsive
----------------------------------------------------------- */
+/* ES/EN: Responsive. */
 @media (max-width:900px){
     #hamburger{
         display:flex;

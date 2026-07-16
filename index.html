@@ -34,10 +34,7 @@
 
     <!-- Theme inline para evitar flash al cargar -->
     <script>
-        (function () {
-            const t = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', t);
-        })();
+        document.documentElement.setAttribute('data-theme', 'dark');
     </script>
 </head>
 
@@ -81,7 +78,7 @@
     </nav>
 
     <!-- ES: Menú móvil a pantalla completa - se abre al pulsar el hamburger
-        EN: Full-screen mobile menu - opens on hamburger click -->
+         EN: Full-screen mobile menu - opens on hamburger click -->
     <div id="mobileMenu">
         <a href="#hero" data-i18n="nav.hero" onclick="">Inicio</a>
         <a href="#about" data-i18n="nav.about" onclick="">Sobre mí</a>
@@ -95,10 +92,12 @@
     <!-- ═════════════════ HERO ═════════════════ -->
     <section id="hero">
         <div class="hero-left">
-            <p class="hero-greeting" data-i18n="hero.saludo">Hola!👋</p>
+            <p class="hero-greeting" data-i18n="hero.greeting">Hola!👋</p>
 
             <h1 class="hero-name">
-                Soy Lucas <span class="accent" id="heroName" data-text="Gimeno">Gimeno</span><span class="cursor"></span>
+                <span data-i18n="hero.name">Soy</span>
+                Lucas
+                <span class="accent" id="heroName" data-text="Gimeno">Gimeno</span><span class="cursor"></span>
             </h1>
 
             <div class="hero-status">
@@ -107,20 +106,22 @@
             </div>
 
             <p class="hero-desc" data-i18n="hero.desc">
-                Desarrollador Backend con formación en DAM, apasionado por construir software limpio y eficiente.
-                Experiencia con arquitectura hexagonal, APIs REST y herramientas profesionales del sector.
-                Basado en Madrid, abierto a oportunidades presenciales, remotas o híbridas.
+                Desarrollador Backend especializado en Java, con formación en DAM.
+                Apasionado por crear software limpio y eficiente, con experiencia en
+                arquitectura hexagonal, APIs REST y herramientas de desarrollo como
+                Jira, Git y Bitbucket. Residente en Madrid, abierto a oportunidades
+                presenciales, remotas o híbridas.
             </p>
 
             <div class="hero-tags">
-                <span class="tag">Java</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Python</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">HTML5</span>
-                <span class="tag">C#</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">MongoDB</span>
+                <span class="hero-tag">Java</span>
+                <span class="hero-tag">TypeScript</span>
+                <span class="hero-tag">Python</span>
+                <span class="hero-tag">JavaScript</span>
+                <span class="hero-tag">HTML5</span>
+                <span class="hero-tag">C#</span>
+                <span class="hero-tag">MySQL</span>
+                <span class="hero-tag">MongoDB</span>
             </div>
 
             <div class="hero-links">
@@ -154,7 +155,7 @@
                     <i class="fa-solid fa-envelope"></i>
                 </a>
 
-                <!-- Descargar CV -->
+                <!-- CV -->
                 <a href="assets/CV/CV_Lucas_Gimeno.pdf" download class="hero-link"
                     data-tooltip="Descargar CV" data-tooltip-es="Descargar CV" data-tooltip-en="Download CV">
                     <i class="fa-solid fa-download"></i>
@@ -184,9 +185,7 @@
 
     <hr class="section-divider" />
 
-    <!-- ══════════════════════════════════════════
-        ABOUT
-    ══════════════════════════════════════════ -->
+    <!-- ═════════════════ ABOUT ME ═════════════════ -->
     <section id="about" class="fade-in">
         <p class="section-label" data-i18n="about.label">// sobre mí</p>
         <h2 class="section-title" data-i18n="about.title">SOBRE MÍ</h2>
@@ -194,22 +193,23 @@
         <div class="about-grid">
             <div class="about-text">
                 <p data-i18n="about.p1">
-                    Soy un desarrollador con formación en Desarrollo de Aplicaciones Multiplataforma (DAM),
-                    con experiencia práctica en entornos profesionales reales. Me apasiona escribir código limpio,
-                    bien estructurado y que escale.
+                    Soy desarrollador backend con formación en Desarrollo de Aplicaciones Multiplataforma (DAM)
+                    y experiencia desarrollando software en entornos profesionales. Me apasiona escribir
+                    código limpio, bien estructurado y escalable.
                 </p>
                 <p data-i18n="about.p2">
-                    Durante mis prácticas trabajé en el desarrollo y extensión de aplicaciones backend usando
-                    Java con arquitectura hexagonal, TypeScript y canales SSE, aplicando metodologías ágiles
-                    y herramientas del sector como Git, Jira y Postman.
+                    Durante mis prácticas participé en el desarrollo y evolución de aplicaciones backend en Java
+                    utilizando arquitectura hexagonal, trabajando también con TypeScript y canales SSE. Además,
+                    utilicé metodologías ágiles y herramientas como Git, Jira y Postman.
                 </p>
                 <p data-i18n="about.p3">
-                    Estoy buscando mi primera oportunidad profesional donde poder crecer, aportar desde el
-                    primer día y seguir aprendiendo de equipos con experiencia.
+                    Actualmente busco una oportunidad como desarrollador backend donde seguir creciendo, aportar
+                    valor desde el primer día y continuar aprendiendo junto a un equipo con experiencia.
                 </p>
             </div>
 
             <div class="about-info">
+                <!-- Location -->
                 <div class="info-card">
                     <div class="info-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -219,11 +219,12 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="info-label" data-i18n="about.ubicacion">Ubicación</div>
-                        <div class="info-value" data-i18n="about.ciudad">Madrid, España</div>
+                        <div class="info-label" data-i18n="about.location">Ubicación</div>
+                        <div class="info-value" data-i18n="about.city">Madrid, España</div>
                     </div>
                 </div>
 
+                <!-- Availability -->
                 <div class="info-card">
                     <div class="info-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -233,11 +234,12 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="info-label" data-i18n="about.disponibilidad">Disponibilidad</div>
-                        <div class="info-value" data-i18n="about.modos">Presencial · Remoto · Híbrido</div>
+                        <div class="info-label" data-i18n="about.availability">Disponibilidad</div>
+                        <div class="info-value" data-i18n="about.modes">Presencial · Remoto · Híbrido</div>
                     </div>
                 </div>
 
+                <!-- Education -->
                 <div class="info-card">
                     <div class="info-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -247,11 +249,12 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="info-label" data-i18n="about.formacion">Formación</div>
-                        <div class="info-value" data-i18n="about.titulo">FPGS DAM</div>
+                        <div class="info-label" data-i18n="about.education">Formación</div>
+                        <div class="info-value" data-i18n="about.degree">FPGS DAM</div>
                     </div>
                 </div>
 
+                <!-- Main Focus -->
                 <div class="info-card">
                     <div class="info-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -261,32 +264,49 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="info-label" data-i18n="about.enfoque">Enfoque principal</div>
+                        <div class="info-label" data-i18n="about.focus">Enfoque principal</div>
                         <div class="info-value" data-i18n="about.stack">Backend · APIs REST · Java</div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="about-stats">
+            <div class="stat-item">
+                <span class="stat-number">4+</span>
+                <span class="stat-label" data-i18n="about.month">Meses</span>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label" data-i18n="about.project">Proyectos</span>
+            </div>
+
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label" data-i18n="about.certificate">Certificados</span>
             </div>
         </div>
     </section>
 
     <hr class="section-divider" />
 
-    <!-- ══════════════════════════════════════════
-       EXPERIENCIA / TIMELINE
-  ══════════════════════════════════════════ -->
+    <!-- ═════════════════ TIMELINE ═════════════════ -->
     <section id="experience" class="fade-in">
         <p class="section-label" data-i18n="exp.label">// trayectoria</p>
         <h2 class="section-title" data-i18n="exp.title">MI EXPERIENCIA</h2>
 
         <div class="timeline">
+            <!-- Timeline 1 -->
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
-                <div class="timeline-date">[Mes/Año inicio] — [Mes/Año fin]</div>
-                <div class="timeline-role" data-i18n="exp.role">Desarrollador en Prácticas</div>
+                <div class="timeline-date">03/2026 - 06/2026</div>
+                <div class="timeline-role" data-i18n="exp2.role">Desarrollador en Prácticas</div>
                 <div class="timeline-company">
-                    [Nombre de la empresa] <span data-i18n="exp.lugar">Madrid · Presencial</span>
+                    Indra Sistemas <span data-i18n="exp2.place">Torrejón de Ardoz, Madrid · Híbrido</span>
                 </div>
-                <div class="timeline-desc" data-i18n="exp.desc">
+                <div class="timeline-desc" data-i18n="exp2.desc">
                     Desarrollo y extensión de funcionalidades en aplicaciones backend dentro de un entorno
                     profesional real. Trabajé en la extensión de clases, métodos y canales SSE usando
                     arquitectura hexagonal en Java. Gestión de versiones con Git y Bitbucket, seguimiento
@@ -295,8 +315,6 @@
                 <div class="timeline-tags">
                     <span class="timeline-tag">Java</span>
                     <span class="timeline-tag">TypeScript</span>
-                    <span class="timeline-tag">HTML</span>
-                    <span class="timeline-tag">Arq. Hexagonal</span>
                     <span class="timeline-tag">SSE</span>
                     <span class="timeline-tag">Git</span>
                     <span class="timeline-tag">Bitbucket</span>
@@ -305,23 +323,30 @@
                 </div>
             </div>
 
+            <!-- Timeline 2 -->
             <div class="timeline-item">
                 <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
-                <div class="timeline-date">[Año inicio] — [Año fin]</div>
-                <div class="timeline-role" data-i18n="exp.edu.role">FPGS — Desarrollo de Aplicaciones Multiplataforma</div>
-                <div class="timeline-company">[Nombre del centro] <span>Madrid</span></div>
-                <div class="timeline-desc" data-i18n="exp.edu.desc">
-                    Formación en desarrollo de software multiplataforma: backend, frontend, bases de datos,
-                    sistemas y redes. Prácticas profesionales incluidas.
+                <div class="timeline-date">04/2023 - 06/2023</div>
+                <div class="timeline-role" data-i18n="exp1.role">Técnico Informático en Prácticas</div>
+                <div class="timeline-company">
+                    Viveverde <span data-i18n="exp1.place">Aranjuez, Madrid · Presencial</span>
+                </div>
+                <div class="timeline-desc" data-i18n="exp1.desc">
+                    Realicé tareas de soporte informático y administración de sistemas en un entorno empresarial,
+                    resolviendo incidencias técnicas relacionadas con equipos y redes. Participé en la instalación
+                    y configuración de sistemas de videovigilancia mediante cámaras PoE, así como en el mantenimiento
+                    y actualización de contenido web utilizando HTML y CSS. También colaboré en la gestión del
+                    inventario de equipos y recursos informáticos mediante herramientas ofimáticas.
                 </div>
                 <div class="timeline-tags">
-                    <span class="timeline-tag">Java</span>
-                    <span class="timeline-tag">Python</span>
-                    <span class="timeline-tag">C#</span>
-                    <span class="timeline-tag">MySQL</span>
-                    <span class="timeline-tag">MongoDB</span>
-                    <span class="timeline-tag">Android Studio</span>
-                    <span class="timeline-tag">Unity</span>
+                    <span class="timeline-tag">Windows</span>
+                    <span class="timeline-tag">Networking</span>
+                    <span class="timeline-tag">PoE</span>
+                    <span class="timeline-tag">HTML</span>
+                    <span class="timeline-tag">CSS</span>
+                    <span class="timeline-tag">Hardware</span>
+                    <span class="timeline-tag">IT Support</span>
+                    <span class="timeline-tag">Microsoft Office</span>
                 </div>
             </div>
         </div>
@@ -329,15 +354,12 @@
 
     <hr class="section-divider" />
 
-    <!-- ══════════════════════════════════════════
-       PROYECTOS
-  ══════════════════════════════════════════ -->
+    <!-- ═════════════════ PROYECTOS ═════════════════ -->
     <section id="projects" class="fade-in">
         <p class="section-label" data-i18n="projects.label">// proyectos</p>
         <h2 class="section-title" data-i18n="projects.title">PROYECTOS</h2>
 
         <div class="projects-grid">
-
             <!-- Proyecto 1 — Portfolio web -->
             <div class="project-card">
                 <img src="assets/images/projects/project1.png" alt="Portfolio web" class="project-img">
@@ -677,12 +699,9 @@
     <script src="data/content-en.js"></script>
     <script src="scripts/theme.js"></script>
     <script src="scripts/animations.js"></script>
-    <script src="scripts/scroll.js"></script>
     <script src="scripts/navbar.js"></script>
     <script src="scripts/typing.js"></script>
-    <script src="scripts/cursor.js"></script>
     <script src="scripts/language.js"></script>
-    <script src="scripts/main.js"></script>
 
 </body>
 

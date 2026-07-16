@@ -1,61 +1,144 @@
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+/* ==========================================================
+    ABOUT - styles/about.css
+    ES: Estilos de la seccion "Sobre mi" - texto, tarjetas de
+        info (ubicacion, disponibilidad...) y estadisticas.
+    EN: Styles for the "About me" section - text, info cards
+        (location, availability...) and stats.
+   ========================================================== */
+    
+/* ES: Grid principal: texto a la izquierda, tarjetas a la derecha.
+   EN: Main grid: text on the left, cards on the right. */
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    margin-top:2.5rem;
+    align-items:center;
 }
 
-.about-text {
-    font-size: 1rem;
-    color: var(--text2);
-    line-height: 1.8;
+/* ES: Parrafos descriptivos de la izquierda.
+   EN: Descriptive paragraphs on the left. */
+.about-text{
+    font-size:1rem;
+    color:var(--text2);
+    line-height:1.85;
+}
+.about-text p + p{
+    margin-top:1.5rem;
 }
 
-.about-text p+p {
-    margin-top: 1rem;
+/* ES: Columna derecha con las tarjetas de informacion.
+   EN: Right column with the info cards. */
+.about-info{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
 }
 
-.about-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+/* ES: Tarjeta individual (icono + etiqueta + valor).
+   EN: Individual card (icon + label + value). */
+.info-card{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:1rem 1.25rem;
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:18px;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.info-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(79,142,247,.28);
+    box-shadow: 0 12px 30px rgba(0,0,0,.16), var(--hover-glow);
+}
+.info-icon{
+    width:44px;
+    height:44px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+    border-radius:14px;
+    background:var(--tag-bg);
+    transition: transform .25s ease, background .25s ease;
+}
+.info-card:hover .info-icon{
+    transform:scale(1.08);
+}
+.info-icon svg{
+    width:20px;
+    height:20px;
+    color:var(--accent);
+}
+.info-label{
+    font-size:.75rem;
+    color:var(--text3);
+    margin-bottom:.18rem;
+}
+.info-value{
+    font-size:.92rem;
+    font-weight:600;
+    color:var(--text);
 }
 
-.info-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+/* ES: Bloque de estadisticas ocupa las 2 columnas del grid.
+   EN: Stats block spans both grid columns. */
+.about-stats{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.25rem;
+    margin-top:4rem;
+}
+.stat-item{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:1.7rem 1rem;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
-.info-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    background: var(--tag-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+/* ES: Brillo radial que aparece al hacer hover sobre la tarjeta.
+   EN: Radial glow that appears on card hover. */
+.stat-item::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at top, rgba(79,142,247,.13), transparent 70%);
+    opacity:0;
+    transition:.35s ease;
+}
+.stat-item:hover{
+    transform:translateY(-5px);
+    border-color:rgba(79,142,247,.35);
+    box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+.stat-item:hover::before{
+    opacity:1;
 }
 
-.info-icon svg {
-    width: 18px;
-    height: 18px;
-    color: var(--accent);
+/* ES: Numero grande con degradado de color.
+   EN: Big number with color gradient. */
+.stat-number{
+    font-size:2rem;
+    font-weight:800;
+    line-height:1;
+    margin-bottom:.55rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
-
-.info-label {
-    font-size: 0.75rem;
-    color: var(--text3);
-    margin-bottom: 0.15rem;
-}
-
-.info-value {
-    font-size: 0.9rem;
-    color: var(--text);
-    font-weight: 500;
+.stat-label{
+    font-size:.82rem;
+    color:var(--text3);
+    text-align:center;
+    letter-spacing:.03em;
 }

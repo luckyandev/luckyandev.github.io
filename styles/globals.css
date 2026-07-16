@@ -1,13 +1,34 @@
+/* ==========================================================
+    GLOBALS - styles/globals.css
+    ES: Reset basico y estilos generales compartidos por toda
+        la pagina. Todo lo que no es especifico de una seccion
+        concreta vive aqui.
+    EN: Basic reset and general styles shared across the whole
+        page. Anything that isn't specific to one section lives here.
+   ========================================================== */
+    
+/* ES: Reset universal - quitamos margenes/padding por defecto
+       y usamos box-sizing: border-box en todo.
+   EN: Universal reset - remove default margin/padding and
+       use box-sizing: border-box everywhere. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ES: Scroll suave al navegar con anclas.
+   EN: Smooth scroll when navigating to anchors. */
 html {
     scroll-behavior: smooth;
 }
 
+/* ES: Estilos base del body - fuente, color de fondo/texto
+       segun el tema activo, y transicion suave al cambiar
+       entre modo claro/oscuro.
+   EN: Base body styles - font, background/text color based
+       on the active theme, and a smooth transition when
+       switching between light/dark mode. */
 body {
     font-family: var(--font-main);
     background: var(--bg);
@@ -17,12 +38,18 @@ body {
     overflow-x: hidden;
 }
 
+/* ES: Contenedor comun de cada <section> - ancho maximo
+       centrado y padding uniforme.
+   EN: Common container for every <section> - centered max
+       width and uniform padding. */
 section {
     padding: var(--section-padding);
     max-width: var(--max-width);
     margin: 0 auto;
 }
 
+/* ES: Linea divisoria entre secciones.
+   EN: Divider line between sections. */
 .section-divider {
     border: none;
     border-top: 1px solid var(--border);
@@ -30,6 +57,8 @@ section {
     margin: 0 auto;
 }
 
+/* ES: Etiqueta pequeña tipo "// sobre mi" encima de cada titulo.
+   EN: Small label like "// about me" above each section title. */
 .section-label {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -39,6 +68,8 @@ section {
     margin-bottom: 0.75rem;
 }
 
+/* ES: Titulo grande de cada seccion.
+   EN: Big heading for each section. */
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
@@ -47,7 +78,8 @@ section {
     color: var(--text);
 }
 
-/* Tags globales */
+/* ES: Tags globales.
+   EN: Global tags. */
 .tag {
     background: var(--tag-bg);
     color: var(--tag-color);
@@ -59,29 +91,14 @@ section {
     font-weight: 500;
 }
 
+/* ES: Ajuste del borde del tag en modo claro.
+   EN: Tag border tweak for light mode. */
 [data-theme="light"] .tag {
     border-color: rgba(37, 99, 235, 0.15);
 }
 
-/* Botón de contacto */
-.btn-contact {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 0.5rem 1.1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity var(--transition);
-}
-
-.btn-contact:hover {
-    opacity: 0.85;
-}
-
-/* Footer */
+/* ES: Footer - pie de pagina con copyright y enlaces.
+   EN: Footer - page footer with copyright and links. */
 footer {
     border-top: 1px solid var(--border);
     padding: 2rem;
@@ -95,18 +112,15 @@ footer {
     flex-wrap: wrap;
     gap: 1rem;
 }
-
 .footer-links {
     display: flex;
     gap: 1.5rem;
 }
-
 .footer-links a {
     color: var(--text3);
     text-decoration: none;
     transition: color var(--transition);
 }
-
 .footer-links a:hover {
     color: var(--text2);
 }

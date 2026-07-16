@@ -1,20 +1,28 @@
+/* ==========================================================
+    CONTACT - styles/contact.css
+    ES: Estilos de la seccion final de contacto.
+    EN: Styles for the final contact section.
+   ========================================================== */
+    
+/* ES: Toda la seccion centrada.
+   EN: Whole section centered. */
 #contact {
     text-align: center;
 }
-
 .contact-subtitle {
     font-size: 1rem;
     color: var(--text2);
     margin-bottom: 2.5rem;
 }
 
+/* ES: Fila de enlaces de contacto (email, LinkedIn, GitHub...).
+   EN: Row of contact links (email, LinkedIn, GitHub...). */
 .contact-links {
     display: flex;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
-
 .contact-link {
     display: flex;
     align-items: center;
@@ -28,13 +36,11 @@
     transition: all var(--transition);
     background: var(--bg2);
 }
-
 .contact-link:hover {
     border-color: var(--accent);
     color: var(--accent);
     background: var(--tag-bg);
 }
-
 .contact-link svg {
     width: 20px;
     height: 20px;

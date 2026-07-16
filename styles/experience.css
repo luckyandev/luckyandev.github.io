@@ -1,9 +1,20 @@
-/* TIMELINE */
+/* ==========================================================
+    EXPERIENCE - styles/experience.css
+    ES: Estilos de la seccion "Experiencia" - timeline laboral,
+        tarjetas de educacion e idiomas.
+    EN: Styles for the "Experience" section - work timeline,
+        education cards and languages.
+   ========================================================== */
+    
+/* ES: TIMELINE - linea vertical con los puestos de trabajo.
+   EN: TIMELINE - vertical line with work history items. */
 .timeline {
     position: relative;
     margin-top: 2.5rem;
 }
 
+/* ES: Linea vertical continua detras de los puntos.
+   EN: Continuous vertical line behind the dots. */
 .timeline::before {
     content: '';
     position: absolute;
@@ -13,17 +24,17 @@
     width: 1px;
     background: var(--timeline-line);
 }
-
 .timeline-item {
     position: relative;
     padding-left: 3rem;
     padding-bottom: 2.5rem;
 }
-
 .timeline-item:last-child {
     padding-bottom: 0;
 }
 
+/* ES: Punto de color sobre la linea vertical.
+   EN: Colored dot on the vertical line. */
 .timeline-dot {
     position: absolute;
     left: 6px;
@@ -34,7 +45,6 @@
     background: var(--accent);
     border: 2px solid var(--bg);
 }
-
 .timeline-date {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -42,27 +52,23 @@
     margin-bottom: 0.4rem;
     letter-spacing: 0.02em;
 }
-
 .timeline-role {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 0.2rem;
 }
-
 .timeline-company {
     font-size: 0.875rem;
     color: var(--text2);
     margin-bottom: 0.75rem;
 }
-
 .timeline-company span {
     display: inline-block;
     margin-left: 0.75rem;
     font-size: 0.75rem;
     color: var(--text3);
 }
-
 .timeline-desc {
     font-size: 0.9rem;
     color: var(--text2);
@@ -70,23 +76,38 @@
     margin-bottom: 0.75rem;
 }
 
+/* ES: Tags de tecnologias usadas en ese puesto (mismo estilo que hero-tag).
+   EN: Technology tags used in that role (same style as hero-tag). */
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: .65rem;
+    margin-bottom: 2.5rem;
 }
-
 .timeline-tag {
-    background: var(--bg3);
-    color: var(--text2);
+    display: inline-flex;
+    align-items: center;
+    padding: .45rem .9rem;
+    border-radius: 999px;
     border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.75rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    color: var(--text2);
+    font-size: .8rem;
+    font-weight: 500;
     font-family: var(--font-mono);
+    transition: transform .3s ease, border-color .3s ease, background .3s ease, color .3s ease, box-shadow .3s ease;
+}
+.timeline-tag:hover {
+    transform: translateY(-3px);
+    color: var(--text);
+    border-color: rgba(79, 142, 247, .35);
+    background: rgba(79, 142, 247, .06);
+    box-shadow: 0 8px 18px rgba(79, 142, 247, .08);
 }
 
-/* EDUCACIÓN */
+/* ES: EDUCACION - tarjetas de titulos/formacion.
+   EN: EDUCATION - qualification/training cards. */
 .edu-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -98,11 +119,9 @@
     gap: 1.25rem;
     transition: border-color var(--transition);
 }
-
 .edu-card:hover {
     border-color: rgba(79, 142, 247, 0.3);
 }
-
 .edu-badge {
     width: 44px;
     height: 44px;
@@ -113,40 +132,36 @@
     justify-content: center;
     flex-shrink: 0;
 }
-
 .edu-badge svg {
     width: 22px;
     height: 22px;
     color: var(--accent);
 }
-
 .edu-title {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 0.25rem;
 }
-
 .edu-school {
     font-size: 0.875rem;
     color: var(--text2);
     margin-bottom: 0.25rem;
 }
-
 .edu-year {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--accent);
 }
 
-/* IDIOMAS */
+/* ES: IDIOMAS - tarjetas de nivel de idioma.
+   EN: LANGUAGES - language level cards. */
 .lang-grid {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
     flex-wrap: wrap;
 }
-
 .lang-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -155,14 +170,12 @@
     text-align: center;
     min-width: 120px;
 }
-
 .lang-name {
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--text);
     margin-bottom: 0.25rem;
 }
-
 .lang-level {
     font-size: 0.75rem;
     color: var(--text3);

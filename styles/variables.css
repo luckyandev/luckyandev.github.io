@@ -1,5 +1,18 @@
+/* ==========================================================
+    VARIABLES - styles/variables.css
+    ES: Variables globales (custom properties) del proyecto.
+        Aqui se define toda la paleta de colores, tipografias,
+        espaciados y transiciones para no repetirlas por todo
+        el CSS. Cambiar un valor aqui lo cambia en toda la web.
+    EN: Global custom properties for the whole project.
+        Colors, typography, spacing and transitions live here
+        so they aren't repeated across the CSS. Changing a
+        value here updates it across the entire site.
+   ========================================================== */
+    
 :root {
-    /* Colores dark mode (por defecto) */
+    /* ES: Colores del modo oscuro (tema por defecto).
+       EN: Dark mode colors (default theme). */
     --bg: #0a0a0a;
     --bg2: #111111;
     --bg3: #1a1a1a;
@@ -16,32 +29,43 @@
     --card-bg: #111111;
     --timeline-line: rgba(255, 255, 255, 0.1);
 
-    /* Tipografía */
+    /* ES: Tipografia - fuente principal y monoespaciada.
+       EN: Typography - main and monospace fonts. */
     --font-main: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Espaciado */
+    /* ES: Espaciado general de las secciones.
+       EN: General section spacing. */
     --section-padding: 6rem 2rem;
     --max-width: 1120px;
 
-    /* Radios */
+    /* ES: Radios de borde reutilizables.
+       EN: Reusable border radii. */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 12px;
 
-    /* Transiciones */
+    /* ES: Duraciones de transicion estandar.
+       EN: Standard transition durations. */
     --transition: 0.2s ease;
     --transition-slow: 0.3s ease;
 
-    /* Premium */
+    /* ES: Variables "premium" - efecto cristal (glass) y sombras.
+       EN: "Premium" variables - glass effect and shadows. */
     --glass-bg: rgba(255,255,255,0.03);
     --glass-border: rgba(255,255,255,0.06);
     --nav-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(79,142,247,0.08);
     --hover-glow: 0 0 0 4px rgba(79,142,247,0.05);
 }
 
+/* ES: Sobrescritura de variables para el modo claro.
+       Se activa poniendo data-theme="light" en el <html>
+       (lo gestiona scripts/theme.js).
+   EN: Variable overrides for light mode.
+       Activated by setting data-theme="light" on <html>
+       (managed by scripts/theme.js). */
 [data-theme="light"] {
-    --bg: #f5f6fa;
+    --bg: #F8F8FF;
     --bg2: #eef0f5;
     --bg3: #e4e7ef;
     --border: rgba(0, 0, 0, 0.08);

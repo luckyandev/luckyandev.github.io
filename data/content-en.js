@@ -1,6 +1,15 @@
 /* ============================================================
-    CONTENT-EN.JS - Content in English
+    CONTENT-EN.JS - data/content-en.js
+    ES: Textos de la web en ingles. Cada clave (ej. "about.p1")
+        se corresponde con un elemento del HTML que tenga el
+        atributo data-i18n="about.p1". language.js vuelca este
+        objeto en la pagina cuando el usuario elige ingles.
+    EN: Website text in English. Each key (e.g. "about.p1")
+        matches an HTML element with the data-i18n="about.p1"
+        attribute. language.js injects this object into the
+        page when the user selects English.
    ============================================================ */
+    
 window.CONTENT_EN = {
     /* NAV */
     "nav.hero": "Home",
@@ -12,7 +21,8 @@ window.CONTENT_EN = {
     "nav.contact": "Contact",
 
     /* HERO */
-    "hero.saludo": "Hi there!👋",
+    "hero.greeting": "Hi there!👋",
+    "hero.name": "I'm",
     "hero.desc": "Backend Developer specialized in Java, with a Higher Vocational Degree (DAM). Passionate about building clean, efficient and maintainable software, with experience in Hexagonal Architecture, REST APIs and development tools such as Git, Bitbucket and Jira. Based in Madrid and open to on-site, hybrid or remote opportunities.",
     "hero.status": "Available for work",
     "hero.scroll": "Scroll to explore",
@@ -20,26 +30,30 @@ window.CONTENT_EN = {
     /* ABOUT */
     "about.label": "// about me",
     "about.title": "ABOUT ME",
-    "about.p1": "I'm a developer with a degree in Multiplatform Application Development (DAM), with hands-on experience in real professional environments. I'm passionate about writing clean, well-structured and scalable code.",
-    "about.p2": "During my internship I worked on developing and extending backend applications using Java with hexagonal architecture, TypeScript and SSE channels, applying agile methodologies and professional tools like Git, Jira and Postman.",
-    "about.p3": "I'm looking for my first professional opportunity where I can grow, contribute from day one and keep learning from experienced teams.",
-    "about.ubicacion": "Location",
-    "about.ciudad": "Madrid, Spain",
-    "about.disponibilidad": "Availability",
-    "about.modos": "On-site · Remote · Hybrid",
-    "about.formacion": "Education",
-    "about.titulo": "FPGS DAM",
-    "about.enfoque": "Main focus",
-    "about.stack": "Backend · REST APIs · Java",
+    "about.p1": "I'm a Backend Developer with a Higher Vocational Degree in Multiplatform Application Development (DAM) and hands-on experience building software in professional environments. I'm passionate about writing clean, maintainable and scalable code.",
+    "about.p2": "During my internship, I contributed to the development and evolution of backend applications using Java, Hexagonal Architecture, TypeScript and SSE, while working with agile methodologies and tools such as Git, Jira and Postman.",
+    "about.p3": "I'm currently looking for a Backend Developer position where I can continue growing, contribute from day one and learn from experienced engineers.",
+    "about.location": "Location",
+    "about.city": "Madrid, Spain",
+    "about.availability": "Availability",
+    "about.modes": "On-site · Remote · Hybrid",
+    "about.education": "Education",
+    "about.degree": "Higher Vocational Degree (DAM)",
+    "about.focus": "Main focus",
+    "about.stack": "Java · REST APIs · Backend",
+    "about.month": "Months",
+    "about.project": "Projects",
+    "about.certificate": "Certificates",
 
     /* EXPERIENCE */
     "exp.label": "// journey",
     "exp.title": "MY EXPERIENCE",
-    "exp.role": "Junior Developer — Internship",
-    "exp.lugar": "Madrid · On-site",
-    "exp.desc": "Development and extension of backend application features in a real professional environment. Extended classes, methods and SSE channels using hexagonal architecture in Java. Version control with Git and Bitbucket, task tracking with Jira, and API testing with Postman.",
-    "exp.edu.role": "FPGS — Multiplatform Application Development",
-    "exp.edu.desc": "Training in multiplatform software development: backend, frontend, databases, systems and networking. Includes professional internship.",
+    "exp2.role": "Junior Developer - Internship",
+    "exp2.place": "Torrejón de Ardoz, Madrid · Hybrid",
+    "exp2.desc": "Developed and extended backend application functionalities in a real-world professional environment. Worked on extending classes, methods, and SSE channels using hexagonal architecture in Java. Managed version control with Git and Bitbucket, tracked tasks using Jira, and performed API testing with Postman.",
+    "exp1.role": "Technician - Internship",
+    "exp1.place": "Aranjuez, Madrid · On-site",
+    "exp1.desc": "I performed IT support and system administration tasks in a corporate environment, resolving technical issues related to hardware and networks. I participated in the installation and configuration of video surveillance systems using PoE cameras, as well as in the maintenance and updating of web content using HTML, CSS, and JavaScript. I also assisted in managing the inventory of IT equipment and resources, developing technical and organizational skills in a professional setting.",
 
     /* PROJECTS */
     "projects.label": "// projects",
