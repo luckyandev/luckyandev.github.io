@@ -1,11 +1,11 @@
-/* ==========================================================
-    CONTACT - styles/contact.css
+/*  ==========================================================
+    CONTACT.CSS - styles/contact.css
     ES: Estilos de la seccion final de contacto.
     EN: Styles for the final contact section.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Toda la seccion centrada.
-   EN: Whole section centered. */
+/*  ES: Toda la seccion centrada.
+    EN: Whole section centered.  */
 #contact {
     text-align: center;
 }
@@ -15,8 +15,8 @@
     margin-bottom: 2.5rem;
 }
 
-/* ES: Fila de enlaces de contacto (email, LinkedIn, GitHub...).
-   EN: Row of contact links (email, LinkedIn, GitHub...). */
+/*  ES: Fila de enlaces de contacto (email, LinkedIn, GitHub...).
+    EN: Row of contact links (email, LinkedIn, GitHub...).  */
 .contact-links {
     display: flex;
     justify-content: center;

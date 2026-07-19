@@ -1,13 +1,13 @@
-/* ==========================================================
-    HERO - styles/hero.css
+/*  ==========================================================
+    HERO.CSS - styles/hero.css
     ES: Estilos de la seccion principal (hero) del portfolio.
     EN: Styles for the main hero section of the portfolio.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Contenedor principal del hero - grid de 2 columnas:
+/*  ES: Contenedor principal del hero - grid de 2 columnas:
         izquierda (texto) y derecha (imagen).
-   EN: Main hero container - 2-column grid:
-        left (text) and right (image). */
+    EN: Main hero container - 2-column grid:
+        left (text) and right (image).  */
 #hero {
     min-height: 100vh;
     max-width: var(--max-width);
@@ -19,8 +19,8 @@
     gap: 4rem;
 }
 
-/* ES: Columna izquierda - todo el contenido textual.
-   EN: Left column - all textual content. */
+/*  ES: Columna izquierda - todo el contenido textual.
+    EN: Left column - all textual content.  */
 .hero-left {
     display: flex;
     flex-direction: column;
@@ -28,8 +28,8 @@
     gap: 0;
 }
 
-/* ES: Saludo pequeno encima del nombre ("Hola a todos").
-   EN: Small greeting above the name ("Hi there"). */
+/*  ES: Saludo pequeno encima del nombre ("Hola a todos").
+    EN: Small greeting above the name ("Hi there").  */
 .hero-greeting {
     display: inline-flex;
     align-items: center;
@@ -42,10 +42,10 @@
     letter-spacing: .03em;
 }
 
-/* ES: Nombre principal - "Soy Lucas Gimeno"
-       white-space: nowrap garantiza que no rompa en 2 lineas.
-   EN: Main name heading - "I'm Lucas Gimeno"
-       white-space: nowrap ensures it stays on one line. */
+/*  ES: Nombre principal - "Soy Lucas Gimeno"
+        white-space: nowrap garantiza que no rompa en 2 lineas.
+    EN: Main name heading - "I'm Lucas Gimeno"
+        white-space: nowrap ensures it stays on one line.  */
 .hero-name {
     font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 800;
@@ -56,8 +56,8 @@
     margin-bottom: 1.5rem;
 }
 
-/* ES: Apellido en degradado acento (azul -> morado).
-   EN: Last name in accent gradient (blue -> purple). */
+/*  ES: Apellido en degradado acento (azul -> morado).
+    EN: Last name in accent gradient (blue -> purple).  */
 .hero-name .accent {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     -webkit-background-clip: text;
@@ -65,8 +65,8 @@
     background-clip: text;
 }
 
-/* ES: Pastilla de estado "Disponible para trabajar".
-   EN: Status pill "Available for work". */
+/*  ES: Pastilla de estado "Disponible para trabajar".
+    EN: Status pill "Available for work".  */
 .hero-status {
     display: inline-flex;
     align-items: center;
@@ -83,8 +83,8 @@
     color: var(--text2);
 }
 
-/* ES: Punto verde animado que pulsa.
-   EN: Animated pulsing green dot. */
+/*  ES: Punto verde animado que pulsa.
+    EN: Animated pulsing green dot.  */
 .status-dot {
     width: 9px;
     height: 9px;
@@ -95,8 +95,8 @@
     flex-shrink: 0;
 }
 
-/* ES: Descripcion breve debajo del nombre.
-   EN: Short description below the name. */
+/*  ES: Descripcion breve debajo del nombre.
+    EN: Short description below the name.  */
 .hero-desc {
     font-size: 1rem;
     line-height: 1.85;
@@ -105,8 +105,8 @@
     max-width: 540px;
 }
 
-/* ES: Tags de tecnologias (Java, Python, etc.).
-   EN: Technology tags (Java, Python, etc.). */
+/*  ES: Tags de tecnologias (Java, Python, etc.).
+    EN: Technology tags (Java, Python, etc.).  */
 .hero-tags {
     display: flex;
     flex-wrap: wrap;
@@ -135,8 +135,8 @@
     box-shadow: 0 8px 18px rgba(79, 142, 247, .08);
 }
 
-/* ES: Iconos de redes sociales.
-   EN: Social media icons. */
+/*  ES: Iconos de redes sociales.
+    EN: Social media icons.  */
 .hero-links {
     display: flex;
     gap: .85rem;
@@ -171,8 +171,8 @@
     transform: scale(1.12);
 }
 
-/* ES: Tooltips al hover sobre los iconos.
-   EN: Tooltips on hover over icons. */
+/*  ES: Tooltips al hover sobre los iconos.
+    EN: Tooltips on hover over icons.  */
 .hero-link::before {
     content: attr(data-tooltip);
     position: absolute;
@@ -195,8 +195,8 @@
     transform: translateX(-50%) translateY(0);
 }
 
-/* ES: Columna derecha - imagen / avatar del perfil.
-   EN: Right column - profile image / avatar. */
+/*  ES: Columna derecha - imagen / avatar del perfil.
+    EN: Right column - profile image / avatar.  */
 .hero-right {
     display: flex;
     justify-content: center;
@@ -211,8 +211,8 @@
     align-items:center;
 }
 
-/* ES: La imagen en si con animacion de flotar.
-   EN: The image itself with float animation. */
+/*  ES: La imagen en si con animacion de flotar.
+    EN: The image itself with float animation.  */
 .hero-img{
     position: relative;
     width: 330px;
@@ -224,8 +224,8 @@
     transform-style:preserve-3d;
 }
 
-/* ES: Circulos de luz difuminados detras del avatar.
-   EN: Blurred glow circles behind the avatar. */
+/*  ES: Circulos de luz difuminados detras del avatar.
+    EN: Blurred glow circles behind the avatar.  */
 .hero-circle{
     position:absolute;
     border-radius:50%;
@@ -251,8 +251,8 @@
     animation-delay:2.5s;
 }
 
-/* ES: Anillos decorativos girando alrededor del avatar.
-   EN: Decorative rings rotating around the avatar. */
+/*  ES: Anillos decorativos girando alrededor del avatar.
+    EN: Decorative rings rotating around the avatar.  */
 .hero-ring{
     position:absolute;
     width:370px;
@@ -273,8 +273,8 @@
     animation:rotateRingReverse 35s linear infinite;
 }
 
-/* ES: Indicador de scroll hacia abajo.
-   EN: Scroll-down indicator. */
+/*  ES: Indicador de scroll hacia abajo.
+    EN: Scroll-down indicator.  */
 .scroll-hint {
     display: flex;
     align-items: center;
@@ -289,8 +289,8 @@
     height: 17px;
 }
 
-/* ES: Cursor parpadeante al final del nombre.
-   EN: Blinking cursor at the end of the name. */
+/*  ES: Cursor parpadeante al final del nombre.
+    EN: Blinking cursor at the end of the name.  */
 .cursor {
     display: inline-block;
     width: 3px;
@@ -301,15 +301,15 @@
     animation: blink 1s infinite;
 }
 
-/* ES: Avatar flotando suavemente.
-   EN: Avatar gently floating. */
+/*  ES: Avatar flotando suavemente.
+    EN: Avatar gently floating.  */
 @keyframes floatAvatar{
     from{ transform: translateY(0); }
     to{ transform: translateY(-14px); }
 }
 
-/* ES: Latido de opacidad/escala de los circulos de glow (ver .hero-circle arriba).
-   EN: Opacity/scale pulse for the glow circles (see .hero-circle above). */
+/*  ES: Latido de opacidad/escala de los circulos de glow (ver .hero-circle arriba).
+    EN: Opacity/scale pulse for the glow circles (see .hero-circle above).  */
 @keyframes breathe{
     0%{ transform: scale(1); opacity:.18; }
     50%{ transform: scale(1.08); opacity:.35; }
@@ -324,8 +324,8 @@
     to{ transform: rotate(0deg); }
 }
 
-/* ES: Punto de estado pulsando.
-   EN: Status dot pulsing. */
+/*  ES: Punto de estado pulsando.
+    EN: Status dot pulsing.  */
 @keyframes pulseStatus {
     0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, .45); }
     70%  { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }

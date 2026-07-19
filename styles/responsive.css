@@ -1,13 +1,13 @@
-/* ==========================================================
-    RESPONSIVE - styles/responsive.css
+/*  ==========================================================
+    RESPONSIVE.CSS - styles/responsive.css
     ES: Media queries para adaptar el portfolio a cualquier
         dispositivo: PC, portátil, tablet y móvil.
     EN: Media queries to adapt the portfolio to any device:
         desktop, laptop, tablet and mobile.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Pantallas medianas - portátiles y tablets horizontales (<= 1100px) .
-   EN: Medium screens - laptops and landscape tablets (<= 1100px) . */
+/*  ES: Pantallas medianas - portátiles y tablets horizontales (<= 1100px).
+    EN: Medium screens - laptops and landscape tablets (<= 1100px).  */
 @media (max-width: 1100px) {
     #hero {
         grid-template-columns: 1fr 360px;
@@ -16,27 +16,33 @@
     .hero-img {
         max-width: 320px;
     }
-    .hero-image-wrapper::before {
-        width: 360px;
-        height: 360px;
+    .hero-circle-1 {
+        width: 320px;
+        height: 320px;
+    }
+    .hero-circle-2 {
+        width: 240px;
+        height: 240px;
     }
 
-    /* ES: Proyectos en 2 columnas sigue bien. / EN: Projects grid still 2 cols - fine. */
+    /*  ES: Proyectos en 2 columnas sigue bien.
+        EN: Projects grid still 2 cols - fine.  */
     .projects-grid {
         gap: 1.25rem;
     }
 
-    /* ES: Certificados pasa a 2 columnas. / EN: Certificates drops to 2 columns. */
+    /*  ES: Certificados pasa a 2 columnas. 
+        EN: Certificates drops to 2 columns.  */
     .certificates-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-/* ES: Tablets en vertical y pantallas pequeñas (≤ 900px).
-   EN: Portrait tablets and small screens (≤ 900px). */
+/*  ES: Tablets en vertical y pantallas pequeñas (≤ 900px).
+    EN: Portrait tablets and small screens (≤ 900px).  */
 @media (max-width: 900px) {
-    /* ES: El hero pasa a una sola columna, imagen arriba.
-       EN: Hero becomes single column, image on top. */
+    /*  ES: El hero pasa a una sola columna, imagen arriba.
+        EN: Hero becomes single column, image on top.  */
     #hero {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
@@ -51,13 +57,17 @@
     .hero-img {
         max-width: 260px;
     }
-    .hero-image-wrapper::before {
-        width: 300px;
-        height: 300px;
+    .hero-circle-1 {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-circle-2 {
+        width: 190px;
+        height: 190px;
     }
 
-    /* ES: El nombre puede ahora ocupar más de una línea si hace falta.
-       EN: Name can now wrap if needed on smaller viewports. */
+    /*  ES: El nombre puede ahora ocupar más de una línea si hace falta.
+        EN: Name can now wrap if needed on smaller viewports.  */
     .hero-name {
         white-space: normal;
         font-size: clamp(2.4rem, 7vw, 3.6rem);
@@ -84,48 +94,55 @@
         justify-content: center;
     }
 
-    /* ES: Ocultamos los links del nav en tablet portrait.
-       EN: Hide nav links on portrait tablet. */
+    /*  ES: Ocultamos los links del nav en tablet portrait.
+        EN: Hide nav links on portrait tablet.  */
     .nav-links {
         display: none;
     }
 
-    /* ES: Grid de about a una columna.
-       EN: About grid to single column. */
+    /*  ES: Grid de about a una columna.
+        EN: About grid to single column.  */
     .about-grid {
         grid-template-columns: 1fr;
     }
 
-    /* ES: Projects a una columna.
-       EN: Projects to single column. */
+    /*  ES: Educacion + Idiomas a una columna (Educacion primero).
+        EN: Education + Languages to single column (Education first).  */
+    .edu-lang-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /*  ES: Projects a una columna.
+        EN: Projects to single column.  */
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    /* ES: Certificates a una columna.
-       EN: Certificates to single column. */
+    /*  ES: Certificates a una columna.
+        EN: Certificates to single column.  */
     .certificates-grid {
         grid-template-columns: 1fr;
     }
 
-    /* ES: Skills a una columna.
-       EN: Skills to single column. */
+    /*  ES: Skills a una columna.
+        EN: Skills to single column.  */
     .skills-grid {
         grid-template-columns: 1fr;
     }
 
-    /* ES: Menos padding en secciones para no desperdiciar espacio.
-       EN: Less section padding to save space. */
+    /*  ES: Menos padding en secciones para no desperdiciar espacio.
+        EN: Less section padding to save space.  */
     section {
         padding: 4rem 1.5rem;
     }
 }
 
-/* ES: Móviles - pantallas pequeñas en vertical (≤ 600px).
-   EN: Mobile - small screens in portrait mode (≤ 600px). */
+/*  ES: Móviles - pantallas pequeñas en vertical (≤ 600px).
+    EN: Mobile - small screens in portrait mode (≤ 600px).  */
 @media (max-width: 600px) {
-    /* ES: Navbar más compacta en móvil.
-       EN: More compact navbar on mobile. */
+    /*  ES: Navbar más compacta en móvil.
+        EN: More compact navbar on mobile.  */
     nav {
         padding: 0 1rem;
         height: 64px;
@@ -136,8 +153,8 @@
         height: 36px;
     }
 
-    /* ES: Hero en móvil - fuente más pequeña, menos padding.
-       EN: Mobile hero - smaller font, less padding. */
+    /*  ES: Hero en móvil - fuente más pequeña, menos padding.
+        EN: Mobile hero - smaller font, less padding.  */
     #hero {
         padding-top: 96px;
         padding-left: 1.25rem;
@@ -151,9 +168,13 @@
     .hero-img {
         max-width: 200px;
     }
-    .hero-image-wrapper::before {
-        width: 240px;
-        height: 240px;
+    .hero-circle-1 {
+        width: 210px;
+        height: 210px;
+    }
+    .hero-circle-2 {
+        width: 160px;
+        height: 160px;
     }
     .hero-desc {
         font-size: .95rem;
@@ -170,14 +191,14 @@
         height: 46px;
     }
 
-    /* ES: Sections con menos padding lateral en móvil.
-       EN: Sections with less horizontal padding on mobile. */
+    /*  ES: Sections con menos padding lateral en móvil.
+        EN: Sections with less horizontal padding on mobile.  */
     section {
         padding: 3.5rem 1.25rem;
     }
 
-    /* ES: Footer en columna en móvil.
-       EN: Footer stacked on mobile. */
+    /*  ES: Footer en columna en móvil.
+        EN: Footer stacked on mobile.  */
     footer {
         flex-direction: column;
         text-align: center;
@@ -189,29 +210,29 @@
         gap: 1rem;
     }
 
-    /* ES: Links de contacto en columna en móvil.
-       EN: Contact links stacked on mobile. */
+    /*  ES: Links de contacto en columna en móvil.
+        EN: Contact links stacked on mobile.  */
     .contact-links {
         flex-direction: column;
         align-items: center;
     }
 
-    /* ES: Timeline con menos padding lateral.
-       EN: Timeline with less horizontal padding. */
+    /*  ES: Timeline con menos padding lateral.
+        EN: Timeline with less horizontal padding.  */
     .timeline-item {
         padding-left: 1.5rem;
     }
 
-    /* ES: Imágenes de proyecto más bajas en móvil.
-       EN: Project images shorter on mobile. */
+    /*  ES: Imágenes de proyecto más bajas en móvil.
+        EN: Project images shorter on mobile.  */
     .project-img,
     .project-img-placeholder {
         height: 150px;
     }
 }
 
-/* ES: Móviles muy pequeños (< 380px).
-   EN: Very small phones (< 380px). */
+/*  ES: Móviles muy pequeños (< 380px).
+    EN: Very small phones (< 380px).  */
 @media (max-width: 380px) {
     .hero-name {
         font-size: 1.9rem;
@@ -220,8 +241,8 @@
         max-width: 170px;
     }
 
-    /* ES: Tags en 2 por fila como máximo.
-       EN: Tags max 2 per row. */
+    /*  ES: Tags en 2 por fila como máximo.
+        EN: Tags max 2 per row.  */
     .hero-tags {
         justify-content: center;
     }

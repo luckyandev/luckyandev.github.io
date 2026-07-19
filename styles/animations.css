@@ -1,13 +1,13 @@
-/* ==========================================================
-    ANIMATIONS - styles/animations.css
+/*  ==========================================================
+    ANIMATIONS.CSS - styles/animations.css
     ES: Animaciones genericas reutilizables en varias partes
         de la pagina.
     EN: Generic animations reused across several parts of the
         page.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Fade-in al hacer scroll.
-   EN: Fade-in on scroll. */
+/*  ES: Fade-in al hacer scroll.
+    EN: Fade-in on scroll.  */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -18,15 +18,15 @@
     transform: translateY(0);
 }
 
-/* ES: Rebote suave del indicador de "scroll para explorar".
-   EN: Gentle bounce for the "scroll to explore" hint. */
+/*  ES: Rebote suave del indicador de "scroll para explorar".
+    EN: Gentle bounce for the "scroll to explore" hint.  */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(4px); }
 }
 
-/* ES: Cursor parpadeante (efecto maquina de escribir).
-   EN: Blinking cursor (typewriter effect). */
+/*  ES: Cursor parpadeante (efecto maquina de escribir).
+    EN: Blinking cursor (typewriter effect).  */
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }

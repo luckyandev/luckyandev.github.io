@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- ES: proyectos.html - Catalogo completo de proyectos, con
+        buscador y filtros por tecnologia. Reutiliza las mismas
+        tarjetas (.project-card) y estilos que la seccion de
+        proyectos de index.html para no romper la estetica.
+    EN: proyectos.html - Full project catalog, with search and
+        technology filters. Reuses the same cards (.project-card)
+        and styles as the projects section in index.html so the
+        look stays consistent. -->
+<html lang="es" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lucas Gimeno | Backend Developer</title>
+
+        <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+        <link rel="manifest" href="assets/icons/site.webmanifest">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <link rel="stylesheet" href="styles/variables.css" />
+        <link rel="stylesheet" href="styles/globals.css" />
+        <link rel="stylesheet" href="styles/animations.css" />
+        <link rel="stylesheet" href="styles/navbar.css" />
+        <link rel="stylesheet" href="styles/projects.css" />
+        <link rel="stylesheet" href="styles/catalog.css" />
+        <link rel="stylesheet" href="styles/responsive.css" />
+
+        <script>
+            document.documentElement.setAttribute('data-theme', 'dark');
+        </script>
+    </head>
+
+    <body>
+        <!-- ═════════════════ NAVBAR ═════════════════ -->
+        <nav>
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/images/logo.png" class="logo-img"></a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html#hero" data-i18n="nav.hero">Inicio</a></li>
+                <li><a href="index.html#about" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="index.html#experience" data-i18n="nav.experience">Experiencia</a></li>
+                <li><a href="index.html#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a></li>
+                <li><a href="index.html#contact" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button id="langToggle" class="theme-btn">EN</button>
+
+                <button id="themeToggle" class="theme-btn">
+                    <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                    </svg>
+                </button>
+
+                <button id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+                    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line class="line line-top" x1="4" y1="6" x2="20" y2="6"/>
+                        <line class="line line-middle" x1="4" y1="12" x2="20" y2="12"/>
+                        <line class="line line-bottom" x1="4" y1="18" x2="20" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobileMenu">
+            <a href="index.html#hero" data-i18n="nav.hero">Inicio</a>
+            <a href="index.html#about" data-i18n="nav.about">Sobre mí</a>
+            <a href="index.html#experience" data-i18n="nav.experience">Experiencia</a>
+            <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+            <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
+            <a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a>
+            <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+        </div>
+
+        <!-- ═════════════════ CABECERA DEL CATÁLOGO ═════════════════ -->
+        <header class="catalog-header">
+            <a href="index.html#projects" class="catalog-back">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span data-i18n="catalog.back">Volver al inicio</span>
+            </a>
+            <p class="section-label" data-i18n="catalog.projects.label">// catálogo completo</p>
+            <h1 class="section-title" data-i18n="catalog.projects.title">TODOS LOS PROYECTOS</h1>
+        </header>
+
+        <section class="catalog-body">
+            <!-- ES: Buscador + orden. | EN: Search + sort. -->
+            <div class="catalog-controls">
+                <div class="catalog-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input type="text" id="catalogSearch" data-i18n-placeholder="catalog.search.placeholder"
+                        placeholder="Buscar por nombre, tecnología...">
+                </div>
+
+                <!-- ES: Desplegable de filtro por tecnología (con buscador interno).
+                    EN: Technology filter dropdown (with internal search). -->
+                <div class="tag-filter" id="catalogTags"></div>
+
+                <div class="catalog-sort">
+                    <select id="catalogSort">
+                        <option value="newest" data-i18n="catalog.sort.newest">Más recientes</option>
+                        <option value="oldest" data-i18n="catalog.sort.oldest">Más antiguos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ES: Mismo grid y mismas tarjetas que en index.html.
+                EN: Same grid and same cards as in index.html. -->
+            <div class="projects-grid" id="catalogGrid">
+                <!-- Project 1 -->
+                <div class="project-card" data-tags="HTML CSS JavaScript i18n" data-date="2025-06">
+                    <img src="assets/images/projects/portfolio.png" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title" data-i18n="project1.title">Portfolio Personal</div>
+                        <div class="project-desc" data-i18n="project1.desc">Web portfolio personal con soporte multiidioma (ES/EN), modo claro/oscuro, animaciones y diseño responsive. Construida con HTML5, CSS3 y JavaScript vanilla.</div>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">i18n</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/luckyandev/portfolio.dev" target="_blank" rel="noopener" class="project-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span data-i18n="projects.github">Ver código</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ES: Ejemplo de tarjeta "próximamente" (misma clase que en index.html).
+                    EN: "Coming soon" card example (same class as in index.html). -->
+                <div class="project-card coming-soon" data-tags="" data-date="">
+                    <div class="project-img-placeholder" data-i18n="projects.coming.placeholder">{ próximamente }</div>
+                    <div class="project-body">
+                        <div class="project-title" data-i18n="projects.coming">Próximamente</div>
+                        <div class="project-desc" data-i18n="projects.coming.desc">Nuevo proyecto en desarrollo. ¡Vuelve pronto!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ES: Mensaje cuando ningún proyecto cumple los filtros.
+                EN: Message when no project matches the filters. -->
+            <div class="catalog-empty" id="catalogEmpty">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <span data-i18n="catalog.empty">No se encontraron resultados con esos filtros.</span>
+            </div>
+        </section>
+
+        <!-- ═════════════════ FOOTER ═════════════════ -->
+        <footer>
+            <span data-i18n="footer.copy">© 2026 Lucas Gimeno · Desarrollador Backend</span>
+            <div class="footer-links">
+                <a href="index.html#hero" data-i18n="nav.hero">Inicio</a>
+                <a href="index.html#about" data-i18n="nav.about">Sobre mí</a>
+                <a href="index.html#experience" data-i18n="nav.experience">Experiencia</a>
+                <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+                <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+            </div>
+        </footer>
+
+        <script src="data/content-es.js"></script>
+        <script src="data/content-en.js"></script>
+        <script src="scripts/theme.js"></script>
+        <script src="scripts/animations.js"></script>
+        <script src="scripts/navbar.js"></script>
+        <script src="scripts/language.js"></script>
+        <script src="scripts/catalog-filter.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                initCatalogFilter({
+                    gridSelector: '#catalogGrid',
+                    cardSelector: '.project-card',
+                    searchInputSelector: '#catalogSearch',
+                    tagContainerSelector: '#catalogTags',
+                    sortSelectSelector: '#catalogSort',
+                    emptyStateSelector: '#catalogEmpty'
+                });
+            });
+        </script>
+    </body>
+</html>

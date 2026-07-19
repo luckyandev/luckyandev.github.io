@@ -1,4 +1,4 @@
-/* ============================================================
+/*  ============================================================
     LANGUAGE.JS - scripts/language.js
     ES: Sistema de internacionalizacion ES / EN.
         Lee el contenido de /data/content-es.js y
@@ -8,18 +8,18 @@
         Reads content from /data/content-es.js and
         /data/content-en.js and fills every element with a
         data-i18n attribute with text in the active language.
-   ============================================================ */
+    ============================================================  */
     
-/* ES: Idioma actual, "es" por defecto.
-   EN: Current language, "es" by default. */
+/*  ES: Idioma actual, "es" por defecto.
+    EN: Current language, "es" by default.  */
 let currentLang = 'es';
 
 async function loadContent(lang) {
     const content = lang === 'en' ? window.CONTENT_EN : window.CONTENT_ES;
     if (!content) return;
 
-    /* ES: Traduccion del texto normal.
-       EN: Translation of regular text. */
+    /*  ES: Traduccion del texto normal.
+        EN: Translation of regular text.  */
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (content[key]) {
@@ -27,8 +27,8 @@ async function loadContent(lang) {
         }
     });
 
-    /* ES: Traduccion de tooltips (atributo data-tooltip).
-       EN: Translation of tooltips (data-tooltip attribute). */
+    /*  ES: Traduccion de tooltips (atributo data-tooltip).
+        EN: Translation of tooltips (data-tooltip attribute).  */
     document.querySelectorAll('[data-tooltip-en]').forEach(el => {
         el.setAttribute(
             'data-tooltip',
@@ -38,13 +38,22 @@ async function loadContent(lang) {
         );
     });
 
+    /*  ES: Traduccion de placeholders de inputs (atributo data-i18n-placeholder).
+        EN: Translation of input placeholders (data-i18n-placeholder attribute).  */
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (content[key]) {
+            el.setAttribute('placeholder', content[key]);
+        }
+    });
+
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
     currentLang = lang;
 }
 
-/* ES: Carga el idioma guardado y conecta el boton de idioma (#langToggle).
-   EN: Loads the saved language and wires up the language button (#langToggle). */
+/*  ES: Carga el idioma guardado y conecta el boton de idioma (#langToggle).
+    EN: Loads the saved language and wires up the language button (#langToggle).  */
 function initLanguage() {
     loadContent(currentLang);
 

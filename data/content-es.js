@@ -1,4 +1,4 @@
-/* ============================================================
+/*  ============================================================
     CONTENT-ES.JS - data/content-es.js
     ES: Textos de la web en español. Cada clave (ej. "about.p1")
         se corresponde con un elemento del HTML que tenga el
@@ -8,7 +8,7 @@
         matches an HTML element with the data-i18n="about.p1"
         attribute. language.js injects this object into the
         page when the user selects Spanish.
-   ============================================================ */
+    ============================================================  */
     
 window.CONTENT_ES = {
     /* NAV */
@@ -55,23 +55,35 @@ window.CONTENT_ES = {
     "exp1.place": "Aranjuez, Madrid · Presencial",
     "exp1.desc": "Realicé tareas de soporte informático y administración de sistemas en un entorno empresarial, resolviendo incidencias técnicas relacionadas con equipos y redes. Participé en la instalación y configuración de sistemas de videovigilancia mediante cámaras PoE, así como en el mantenimiento y actualización de contenido web utilizando HTML, CSS y JavaScript. También colaboré en la gestión del inventario de equipos y recursos informáticos, desarrollando habilidades técnicas y organizativas en un entorno profesional.",
 
+    /* SKILLS */
+    "skills.label": "// tecnologías",
+    "skills.title": "HABILIDADES",
+    "skills.bd": "Bases de datos",
+    "skills.tools": "Herramientas",
+    "skills.systems": "Sistemas",
+    "skills.methodologies": "Metodologías",
+
     /* PROYECTOS */
     "projects.label": "// proyectos",
     "projects.title": "PROYECTOS",
     "projects.github": "Ver código",
     "projects.demo": "Demo",
-    "projects.wip": "En desarrollo",
     "projects.coming": "Próximamente",
-
-    /* SKILLS */
-    "skills.label": "// tecnologías",
-    "skills.title": "SKILLS",
+    "projects.coming.placeholder": "{ próximamente }",
+    "projects.coming.desc": "Nuevo proyecto en desarrollo. ¡Vuelve pronto!",
+    "project1.title": "Portfolio Personal",
+    "project1.desc": "Web portfolio personal con soporte multiidioma (ES/EN), modo claro/oscuro, animaciones y diseño responsive. Construida con HTML5, CSS3 y JavaScript vanilla.",
 
     /* CERTIFICADOS */
     "certificates.label": "// certificados",
     "certificates.title": "CERTIFICADOS",
-    "certificates.ver": "Ver certificado",
-    "certificates.pending": "En progreso",
+    "certificates.view": "Ver certificado",
+    "certificates.coming": "[Certificado en progreso]",
+    "certificates.coming.placeholder": "[Plataforma]",
+    "certificates.coming.desc": "Nuevo certificado en progreso. ¡Vuelve pronto!",
+    "certificate1.title": "[Nombre del certificado]",
+    "certificate1.platform": "[Plataforma]",
+    "certificate1.date": "[Mes Año]",
 
     /* EDUCACIÓN */
     "edu.label": "// formación",
@@ -80,11 +92,11 @@ window.CONTENT_ES = {
     "edu.smr": "Técnico en Sistemas Microinformáticos y Redes (SMR)",
 
     /* IDIOMAS */
-    "lang.label": "// idiomas",
     "lang.title": "IDIOMAS",
     "lang.es": "Español",
-    "lang.es.nivel": "Nativo",
+    "lang.es.level": "Nativo",
     "lang.en": "Inglés",
+    "lang.en.level": "Intermedio",
 
     /* CONTACTO */
     "contact.label": "// contacto",
@@ -92,5 +104,19 @@ window.CONTENT_ES = {
     "contact.sub": "¿Tienes una oportunidad o quieres colaborar? Escríbeme.",
 
     /* FOOTER */
-    "footer.copy": "© 2025 Lucas Gimeno · Desarrollador Backend",
+    "footer.copy": "© 2026 Lucas Gimeno · Desarrollador Backend",
+    
+    /* CATÁLOGO (páginas proyectos.html / certificados.html) */
+    "catalog.back": "Volver al inicio",
+    "catalog.projects.title": "TODOS LOS PROYECTOS",
+    "catalog.projects.label": "// catálogo completo",
+    "catalog.certificates.title": "TODOS LOS CERTIFICADOS",
+    "catalog.certificates.label": "// catálogo completo",
+    "catalog.search.placeholder": "Buscar por nombre, tecnología...",
+    "catalog.filter.tecno": "Tecnologías",
+    "catalog.sort.newest": "Más recientes",
+    "catalog.sort.oldest": "Más antiguos",
+    "catalog.empty": "No se encontraron resultados con esos filtros.",
+    "catalog.viewall.projects": "Ver todos los proyectos",
+    "catalog.viewall.certificates": "Ver todos los certificados",
 };

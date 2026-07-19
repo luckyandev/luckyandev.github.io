@@ -1,10 +1,10 @@
-/* ============================================================
+/*  ============================================================
     NAVBAR.JS - scripts/navbar.js
     ES: Comportamiento de la navbar - scroll, sección activa
         y menú hamburger para móvil/tablet.
     EN: Navbar behaviour - scroll, active section highlight
         and hamburger menu for mobile/tablet.
-   ============================================================ */
+    ============================================================  */
     
 function initNavbar() {
     const nav = document.querySelector("nav");
@@ -16,10 +16,10 @@ function initNavbar() {
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
 
-    /* ES: Detectamos qué sección ocupa el viewport y
-           marcamos el enlace correspondiente.
-       EN: Detect which section is currently visible and
-           highlight its corresponding navbar link. */
+    /*  ES: Detectamos qué sección ocupa el viewport y
+            marcamos el enlace correspondiente.
+        EN: Detect which section is currently visible and
+            highlight its corresponding navbar link.  */
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
@@ -34,28 +34,28 @@ function initNavbar() {
     }, { threshold: 0.4 });
     sections.forEach(section => sectionObserver.observe(section));
 
-    /* ES: Si no existe el menú móvil terminamos aquí.
-       EN: Stop here if mobile menu doesn't exist. */
+    /*  ES: Si no existe el menú móvil terminamos aquí.
+        EN: Stop here if mobile menu doesn't exist.  */
     if (!hamburger || !mobileMenu) return;
 
-    /* ES: Función para abrir el menú.
-       EN: Opens the mobile menu. */
+    /*  ES: Función para abrir el menú.
+        EN: Opens the mobile menu.  */
     function openMenu() {
         mobileMenu.classList.add("open");
         hamburger.classList.add("active");
         document.body.style.overflow = "hidden";
     }
 
-    /* ES: Función para cerrar el menú.
-       EN: Closes the mobile menu. */
+    /*  ES: Función para cerrar el menú.
+        EN: Closes the mobile menu.  */
     function closeMenu() {
         mobileMenu.classList.remove("open");
         hamburger.classList.remove("active");
         document.body.style.overflow = "";
     }
 
-    /* ES: Toggle del menú hamburguesa.
-       EN: Hamburger menu toggle. */
+    /*  ES: Toggle del menú hamburguesa.
+        EN: Hamburger menu toggle.  */
     hamburger.addEventListener("click", (e) => {
         e.stopPropagation();
         if (mobileMenu.classList.contains("open")) {
@@ -65,16 +65,17 @@ function initNavbar() {
         }
     });
 
-    /* ES: Cerrar al pulsar un enlace del menú móvil.
-        EN: Close menu after clicking any mobile link. */
+    /*  ES: Cerrar al pulsar un enlace del menú móvil.
+        EN: Close menu after clicking any mobile link.  */
     mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
+        link.addEventListener("click", (e) => {
+            scrollToSection(e);
             closeMenu();
         });
     });
 
-    /* ES: Cerrar al hacer click fuera del menú.
-       EN: Close menu when clicking outside. */
+    /*  ES: Cerrar al hacer click fuera del menú.
+        EN: Close menu when clicking outside.  */
     document.addEventListener("click", (e) => {
         if (!mobileMenu.classList.contains("open")) return;
         if (
@@ -85,10 +86,10 @@ function initNavbar() {
         }
     });
 
-    /* ES: Si el usuario vuelve a escritorio (>900px),
+    /*  ES: Si el usuario vuelve a escritorio (>900px),
             cerramos automáticamente el menú.
-       EN: Automatically close the menu when returning
-            to desktop (>900px). */
+        EN: Automatically close the menu when returning
+            to desktop (>900px).  */
     window.addEventListener("resize", () => {
         if (window.innerWidth > 900) {
             closeMenu();
@@ -96,6 +97,6 @@ function initNavbar() {
     });
 }
 
-/* ES: Inicializamos cuando el DOM está listo.
-   EN: Initialize once the DOM is ready. */
+/*  ES: Inicializamos cuando el DOM está listo.
+    EN: Initialize once the DOM is ready.  */
 document.addEventListener("DOMContentLoaded", initNavbar);

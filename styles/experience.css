@@ -1,20 +1,20 @@
-/* ==========================================================
-    EXPERIENCE - styles/experience.css
+/*  ==========================================================
+    EXPERIENCE.CSS - styles/experience.css
     ES: Estilos de la seccion "Experiencia" - timeline laboral,
         tarjetas de educacion e idiomas.
     EN: Styles for the "Experience" section - work timeline,
         education cards and languages.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: TIMELINE - linea vertical con los puestos de trabajo.
-   EN: TIMELINE - vertical line with work history items. */
+/*  ES: TIMELINE - linea vertical con los puestos de trabajo.
+    EN: TIMELINE - vertical line with work history items.  */
 .timeline {
     position: relative;
     margin-top: 2.5rem;
 }
 
-/* ES: Linea vertical continua detras de los puntos.
-   EN: Continuous vertical line behind the dots. */
+/*  ES: Linea vertical continua detras de los puntos.
+    EN: Continuous vertical line behind the dots.  */
 .timeline::before {
     content: '';
     position: absolute;
@@ -33,8 +33,8 @@
     padding-bottom: 0;
 }
 
-/* ES: Punto de color sobre la linea vertical.
-   EN: Colored dot on the vertical line. */
+/*  ES: Punto de color sobre la linea vertical.
+    EN: Colored dot on the vertical line.  */
 .timeline-dot {
     position: absolute;
     left: 6px;
@@ -76,8 +76,8 @@
     margin-bottom: 0.75rem;
 }
 
-/* ES: Tags de tecnologias usadas en ese puesto (mismo estilo que hero-tag).
-   EN: Technology tags used in that role (same style as hero-tag). */
+/*  ES: Tags de tecnologias usadas en ese puesto (mismo estilo que hero-tag).
+    EN: Technology tags used in that role (same style as hero-tag).  */
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
@@ -106,8 +106,8 @@
     box-shadow: 0 8px 18px rgba(79, 142, 247, .08);
 }
 
-/* ES: EDUCACION - tarjetas de titulos/formacion.
-   EN: EDUCATION - qualification/training cards. */
+/*  ES: EDUCACION - tarjetas de titulos/formacion.
+    EN: EDUCATION - qualification/training cards.  */
 .edu-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -115,12 +115,17 @@
     padding: 1.5rem;
     margin-top: 1rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.25rem;
-    transition: border-color var(--transition);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.edu-card:first-of-type {
+    margin-top: 0;
 }
 .edu-card:hover {
-    border-color: rgba(79, 142, 247, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(79, 142, 247, .28);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .16), var(--hover-glow);
 }
 .edu-badge {
     width: 44px;
@@ -143,6 +148,12 @@
     color: var(--text);
     margin-bottom: 0.25rem;
 }
+.edu-lang-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
 .edu-school {
     font-size: 0.875rem;
     color: var(--text2);
@@ -154,29 +165,51 @@
     color: var(--accent);
 }
 
-/* ES: IDIOMAS - tarjetas de nivel de idioma.
-   EN: LANGUAGES - language level cards. */
-.lang-grid {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
+/*  ES: IDIOMAS - mismo patron visual que .edu-card (icono + texto),
+        para que ambas columnas de la seccion se vean coherentes.
+    EN: LANGUAGES - same visual pattern as .edu-card (icon + text),
+        so both columns of the section feel consistent.  */
 .lang-card {
     background: var(--bg2);
     border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.lang-card:first-of-type {
+    margin-top: 0;
+}
+.lang-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(79, 142, 247, .28);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .16), var(--hover-glow);
+}
+.lang-badge {
+    width: 44px;
+    height: 40px;
     border-radius: var(--radius-md);
-    padding: 1rem 1.5rem;
-    text-align: center;
-    min-width: 120px;
+    background: var(--tag-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.lang-badge svg {
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
 }
 .lang-name {
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 0.9rem;
     color: var(--text);
     margin-bottom: 0.25rem;
 }
 .lang-level {
-    font-size: 0.75rem;
-    color: var(--text3);
+    font-size: 0.875rem;
+    color: var(--text2);
 }

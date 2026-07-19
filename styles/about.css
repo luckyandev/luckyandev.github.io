@@ -1,13 +1,13 @@
-/* ==========================================================
-    ABOUT - styles/about.css
+/*  ==========================================================
+    ABOUT.CSS - styles/about.css
     ES: Estilos de la seccion "Sobre mi" - texto, tarjetas de
         info (ubicacion, disponibilidad...) y estadisticas.
     EN: Styles for the "About me" section - text, info cards
         (location, availability...) and stats.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Grid principal: texto a la izquierda, tarjetas a la derecha.
-   EN: Main grid: text on the left, cards on the right. */
+/*  ES: Grid principal: texto a la izquierda, tarjetas a la derecha.
+    EN: Main grid: text on the left, cards on the right.  */
 .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -16,8 +16,8 @@
     align-items:center;
 }
 
-/* ES: Parrafos descriptivos de la izquierda.
-   EN: Descriptive paragraphs on the left. */
+/*  ES: Parrafos descriptivos de la izquierda.
+    EN: Descriptive paragraphs on the left.  */
 .about-text{
     font-size:1rem;
     color:var(--text2);
@@ -27,16 +27,16 @@
     margin-top:1.5rem;
 }
 
-/* ES: Columna derecha con las tarjetas de informacion.
-   EN: Right column with the info cards. */
+/*  ES: Columna derecha con las tarjetas de informacion.
+    EN: Right column with the info cards.  */
 .about-info{
     display:flex;
     flex-direction:column;
     gap:1rem;
 }
 
-/* ES: Tarjeta individual (icono + etiqueta + valor).
-   EN: Individual card (icon + label + value). */
+/*  ES: Tarjeta individual (icono + etiqueta + valor).
+    EN: Individual card (icon + label + value).  */
 .info-card{
     display:flex;
     align-items:center;
@@ -82,8 +82,8 @@
     color:var(--text);
 }
 
-/* ES: Bloque de estadisticas ocupa las 2 columnas del grid.
-   EN: Stats block spans both grid columns. */
+/*  ES: Bloque de estadisticas ocupa las 2 columnas del grid.
+    EN: Stats block spans both grid columns.  */
 .about-stats{
     grid-column:1 / -1;
     display:grid;
@@ -105,8 +105,8 @@
     transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
-/* ES: Brillo radial que aparece al hacer hover sobre la tarjeta.
-   EN: Radial glow that appears on card hover. */
+/*  ES: Brillo radial que aparece al hacer hover sobre la tarjeta.
+    EN: Radial glow that appears on card hover.  */
 .stat-item::before{
     content:"";
     position:absolute;
@@ -124,8 +124,8 @@
     opacity:1;
 }
 
-/* ES: Numero grande con degradado de color.
-   EN: Big number with color gradient. */
+/*  ES: Numero grande con degradado de color.
+    EN: Big number with color gradient.  */
 .stat-number{
     font-size:2rem;
     font-weight:800;

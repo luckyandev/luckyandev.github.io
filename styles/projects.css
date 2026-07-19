@@ -1,11 +1,11 @@
-/* ==========================================================
-    PROJECTS - styles/projects.css
+/*  ==========================================================
+    PROJECTS.CSS - styles/projects.css
     ES: Estilos de la seccion "Proyectos" y de "Certificados".
     EN: Styles for the "Projects" and "Certificates" sections.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Grid de tarjetas de proyecto (2 columnas en desktop).
-   EN: Project card grid (2 columns on desktop). */
+/*  ES: Grid de tarjetas de proyecto (2 columnas en desktop).
+    EN: Project card grid (2 columns on desktop).  */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,10 +27,10 @@
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* ES: Captura/imagen del proyecto, con un ligero oscurecido
-       que desaparece al hacer hover.
-   EN: Project screenshot/image, slightly darkened, which
-       clears up on hover. */
+/*  ES: Captura/imagen del proyecto, con un ligero oscurecido
+        que desaparece al hacer hover.
+    EN: Project screenshot/image, slightly darkened, which
+        clears up on hover.  */
 .project-img {
     width: 100%;
     height: 180px;
@@ -43,8 +43,8 @@
     filter: brightness(1);
 }
 
-/* ES: Placeholder para proyectos.
-   EN: Placeholder for projects. */
+/*  ES: Placeholder para proyectos.
+    EN: Placeholder for projects.  */
 .project-img-placeholder {
     width: 100%;
     height: 180px;
@@ -118,8 +118,8 @@
     background: var(--tag-bg);
 }
 
-/* ES: Tarjeta de proyecto "proximamente" - borde discontinuo y atenuada.
-   EN: "Coming soon" project card - dashed border and dimmed. */
+/*  ES: Tarjeta de proyecto "proximamente" - borde discontinuo y atenuada.
+    EN: "Coming soon" project card - dashed border and dimmed.  */
 .project-card.coming-soon {
     border-style: dashed;
     opacity: 0.6;
@@ -130,8 +130,8 @@
     box-shadow: none;
 }
 
-/* ES: Certificados.
-   EN: Certificates. */
+/*  ES: Certificados.
+    EN: Certificates.  */
 .certificates-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -151,8 +151,8 @@
     overflow: hidden;
 }
 
-/* ES: Barra de color arriba de la tarjeta, aparece al hover.
-   EN: Colored bar on top of the card, appears on hover. */
+/*  ES: Barra de color arriba de la tarjeta, aparece al hover.
+    EN: Colored bar on top of the card, appears on hover.  */
 .cert-card::before {
     content: '';
     position: absolute;
@@ -221,8 +221,8 @@
     color: var(--accent);
 }
 
-/* ES: Certificado placeholder ("En progreso") - borde discontinuo.
-   EN: Placeholder certificate ("In progress") - dashed border. */
+/*  ES: Certificado placeholder ("En progreso") - borde discontinuo.
+    EN: Placeholder certificate ("In progress") - dashed border.  */
 .cert-card.placeholder {
     border-style: dashed;
     opacity: 0.5;

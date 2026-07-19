@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- ES: certificates.html - Catalogo completo de certificados,
+        con buscador y filtros por plataforma/tecnologia.
+        Reutiliza las mismas tarjetas (.cert-card) y estilos
+        que la seccion de certificados de index.html.
+    EN: certificates.html - Full certificate catalog, with
+        search and platform/technology filters. Reuses the
+        same cards (.cert-card) and styles as the certificates
+        section in index.html. -->
+<html lang="es" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lucas Gimeno | Backend Developer</title>
+
+        <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+        <link rel="manifest" href="assets/icons/site.webmanifest">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <link rel="stylesheet" href="styles/variables.css" />
+        <link rel="stylesheet" href="styles/globals.css" />
+        <link rel="stylesheet" href="styles/animations.css" />
+        <link rel="stylesheet" href="styles/navbar.css" />
+        <link rel="stylesheet" href="styles/projects.css" />
+        <link rel="stylesheet" href="styles/catalog.css" />
+        <link rel="stylesheet" href="styles/responsive.css" />
+
+        <script>
+            document.documentElement.setAttribute('data-theme', 'dark');
+        </script>
+    </head>
+
+    <body>
+        <!-- ═════════════════ NAVBAR ═════════════════ -->
+        <nav>
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/images/logo.png" class="logo-img"></a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html#hero" data-i18n="nav.hero">Inicio</a></li>
+                <li><a href="index.html#about" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="index.html#experience" data-i18n="nav.experience">Experiencia</a></li>
+                <li><a href="index.html#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a></li>
+                <li><a href="index.html#contact" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button id="langToggle" class="theme-btn">EN</button>
+
+                <button id="themeToggle" class="theme-btn">
+                    <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                    </svg>
+                </button>
+
+                <button id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+                    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line class="line line-top" x1="4" y1="6" x2="20" y2="6"/>
+                        <line class="line line-middle" x1="4" y1="12" x2="20" y2="12"/>
+                        <line class="line line-bottom" x1="4" y1="18" x2="20" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobileMenu">
+            <a href="index.html#hero" data-i18n="nav.hero">Inicio</a>
+            <a href="index.html#about" data-i18n="nav.about">Sobre mí</a>
+            <a href="index.html#experience" data-i18n="nav.experience">Experiencia</a>
+            <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+            <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
+            <a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a>
+            <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+        </div>
+
+        <!-- ═════════════════ CABECERA DEL CATÁLOGO ═════════════════ -->
+        <header class="catalog-header">
+            <a href="index.html#projects" class="catalog-back">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span data-i18n="catalog.back">Volver al inicio</span>
+            </a>
+            <p class="section-label" data-i18n="catalog.certificates.label">// catálogo completo</p>
+            <h1 class="section-title" data-i18n="catalog.certificates.title">TODOS LOS CERTIFICADOS</h1>
+        </header>
+
+        <section class="catalog-body">
+            <!-- ES: Buscador + orden. | EN: Search + sort. -->
+            <div class="catalog-controls">
+                <div class="catalog-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input type="text" id="catalogSearch" data-i18n-placeholder="catalog.search.placeholder"
+                        placeholder="Buscar por nombre, tecnología...">
+                </div>
+
+                <!-- ES: Desplegable de filtro por tecnología (con buscador interno).
+                    EN: Technology filter dropdown (with internal search). -->
+                <div class="tag-filter" id="catalogTags"></div>
+
+                <div class="catalog-sort">
+                    <select id="catalogSort">
+                        <option value="newest" data-i18n="catalog.sort.newest">Más recientes</option>
+                        <option value="oldest" data-i18n="catalog.sort.oldest">Más antiguos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="certificates-grid" id="catalogGrid">
+                <!-- Certificado 1 
+                <div class="cert-card" data-tags="oracle java" data-date="2025-03">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                        </svg>
+                    </div>
+                    <div class="cert-name" data-i18n="certificate1.title">[Nombre del certificado]</div>
+                    <div class="cert-issuer" data-i18n="certificate1.platform">[Plataforma — ej: Coursera / Oracle / Google]</div>
+                    <div class="cert-date" data-i18n="certificate1.date">[Mes Año]</div>
+                    <a href="#" target="_blank" rel="noopener" class="cert-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <span data-i18n="certificates.view">Ver certificado</span>
+                    </a>
+                </div> -->
+
+                <!-- ES: Ejemplo de tarjeta "en progreso" (misma clase que en index.html).
+                    EN: "In progress" card example (same class as in index.html). -->
+                <div class="cert-card placeholder" data-tags="" data-date="">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div class="cert-name" data-i18n="certificates.coming">[Certificado en progreso]</div>
+                    <div class="cert-issuer" data-i18n="certificates.coming.placeholder">[Plataforma]</div>
+                    <div class="cert-date" data-i18n="certificates.coming.desc">Nuevo certificado en progreso. ¡Vuelve pronto!</div>
+                </div>
+            </div>
+
+            <div class="catalog-empty" id="catalogEmpty">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <span data-i18n="catalog.empty">No se encontraron resultados con esos filtros.</span>
+            </div>
+        </section>
+
+        <!-- ═════════════════ FOOTER ═════════════════ -->
+        <footer>
+            <span data-i18n="footer.copy">© 2026 Lucas Gimeno · Desarrollador Backend</span>
+            <div class="footer-links">
+                <a href="index.html#hero" data-i18n="nav.hero">Inicio</a>
+                <a href="index.html#about" data-i18n="nav.about">Sobre mí</a>
+                <a href="index.html#experience" data-i18n="nav.experience">Experiencia</a>
+                <a href="index.html#skills" data-i18n="nav.skills">Skills</a>
+                <a href="index.html#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="index.html#certificates" data-i18n="nav.certificates">Certificados</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+            </div>
+        </footer>
+
+        <script src="data/content-es.js"></script>
+        <script src="data/content-en.js"></script>
+        <script src="scripts/theme.js"></script>
+        <script src="scripts/animations.js"></script>
+        <script src="scripts/navbar.js"></script>
+        <script src="scripts/language.js"></script>
+        <script src="scripts/catalog-filter.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                initCatalogFilter({
+                    gridSelector: '#catalogGrid',
+                    cardSelector: '.cert-card',
+                    searchInputSelector: '#catalogSearch',
+                    tagContainerSelector: '#catalogTags',
+                    sortSelectSelector: '#catalogSort',
+                    emptyStateSelector: '#catalogEmpty'
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,708 +1,733 @@
 <!DOCTYPE html>
+<!-- ES: index.html - Página principal del portfolio.
+        Todas las secciones viven aquí como <section id="...">
+        y se enlazan desde el navbar mediante anclas (#about, #projects...).
+        Los textos visibles usan data-i18n="clave" y se rellenan
+        en tiempo real desde data/content-es.js o content-en.js
+        (ver scripts/language.js).
+    EN: index.html - Home page portfolio.
+        All sections live here as <section id="..."> and are
+        linked from the navbar via anchors (#about, #projects...).
+        Visible text uses data-i18n="key" and is filled in at
+        runtime from data/content-es.js or content-en.js
+        (see scripts/language.js). -->
 <html lang="es" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lucas Gimeno | Backend Developer</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Gimeno | Backend Developer</title>
+        <!-- ES: Iconos / favicons. | EN: Icons / favicons. -->
+        <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+        <link rel="manifest" href="assets/icons/site.webmanifest">
 
-    <!-- Images -->
-    <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="manifest" href="assets/icons/site.webmanifest">
+        <!-- ES: Fuentes de Google (Inter + JetBrains Mono). | EN: Google Fonts (Inter + JetBrains Mono). -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <!-- ES: Hojas de estilo propias, el orden de carga importa. | EN: Own stylesheets, load order matters. -->
+        <link rel="stylesheet" href="styles/variables.css" />
+        <link rel="stylesheet" href="styles/globals.css" />
+        <link rel="stylesheet" href="styles/animations.css" />
+        <link rel="stylesheet" href="styles/navbar.css" />
+        <link rel="stylesheet" href="styles/hero.css" />
+        <link rel="stylesheet" href="styles/about.css" />
+        <link rel="stylesheet" href="styles/experience.css" />
+        <link rel="stylesheet" href="styles/projects.css" />
+        <link rel="stylesheet" href="styles/skills.css" />
+        <link rel="stylesheet" href="styles/contact.css" />
+        <link rel="stylesheet" href="styles/catalog.css" />
+        <link rel="stylesheet" href="styles/responsive.css" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/variables.css" />
-    <link rel="stylesheet" href="styles/globals.css" />
-    <link rel="stylesheet" href="styles/animations.css" />
-    <link rel="stylesheet" href="styles/navbar.css" />
-    <link rel="stylesheet" href="styles/hero.css" />
-    <link rel="stylesheet" href="styles/about.css" />
-    <link rel="stylesheet" href="styles/experience.css" />
-    <link rel="stylesheet" href="styles/projects.css" />
-    <link rel="stylesheet" href="styles/skills.css" />
-    <link rel="stylesheet" href="styles/contact.css" />
-    <link rel="stylesheet" href="styles/responsive.css" />
+        <!-- ES: Tema inline para evitar flash al cargar (se aplica antes de pintar la página).
+            EN: Inline theme script to avoid a flash on load (applied before the page paints). -->
+        <script>
+            document.documentElement.setAttribute('data-theme', 'dark');
+        </script>
+    </head>
 
-    <!-- Theme inline para evitar flash al cargar -->
-    <script>
-        document.documentElement.setAttribute('data-theme', 'dark');
-    </script>
-</head>
-
-<body>
-    <!-- ═════════════════ NAVBAR ═════════════════ -->
-    <nav>
-        <div class="nav-logo">
-            <img src="assets/images/logo.png" class="logo-img">
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="#hero" data-i18n="nav.hero">Inicio</a></li>
-            <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
-            <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
-            <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
-            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-            <li><a href="#certificates" data-i18n="nav.certificates">Certificados</a></li>
-            <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
-        </ul>
-
-        <div class="nav-right">
-            <button id="langToggle" class="theme-btn" aria-label="Cambiar idioma">EN</button>
-
-            <button id="themeToggle" class="theme-btn" aria-label="Cambiar tema">
-                <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                </svg>
-            </button>
-
-            <button id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
-                <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line class="line line-top" x1="4" y1="6" x2="20" y2="6"/>
-                    <line class="line line-middle" x1="4" y1="12" x2="20" y2="12"/>
-                    <line class="line line-bottom" x1="4" y1="18" x2="20" y2="18"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- ES: Menú móvil a pantalla completa - se abre al pulsar el hamburger
-         EN: Full-screen mobile menu - opens on hamburger click -->
-    <div id="mobileMenu">
-        <a href="#hero" data-i18n="nav.hero" onclick="">Inicio</a>
-        <a href="#about" data-i18n="nav.about" onclick="">Sobre mí</a>
-        <a href="#experience" data-i18n="nav.experience" onclick="">Experiencia</a>
-        <a href="#projects" data-i18n="nav.projects" onclick="">Proyectos</a>
-        <a href="#skills" data-i18n="nav.skills" onclick="">Skills</a>
-        <a href="#certificates" data-i18n="nav.certificates" onclick="">Certificados</a>
-        <a href="#contact" data-i18n="nav.contact" onclick="">Contacto</a>
-    </div>
-
-    <!-- ═════════════════ HERO ═════════════════ -->
-    <section id="hero">
-        <div class="hero-left">
-            <p class="hero-greeting" data-i18n="hero.greeting">Hola!👋</p>
-
-            <h1 class="hero-name">
-                <span data-i18n="hero.name">Soy</span>
-                Lucas
-                <span class="accent" id="heroName" data-text="Gimeno">Gimeno</span><span class="cursor"></span>
-            </h1>
-
-            <div class="hero-status">
-                <span class="status-dot"></span>
-                <span data-i18n="hero.status">Disponible para trabajar</span>
+    <body>
+        <!-- ═════════════════ NAVBAR ═════════════════ -->
+        <!-- ES: Barra de navegación fija superior. | EN: Fixed top navigation bar. -->
+        <nav>
+            <div class="nav-logo">
+                <img src="assets/images/logo.png" class="logo-img">
             </div>
 
-            <p class="hero-desc" data-i18n="hero.desc">
-                Desarrollador Backend especializado en Java, con formación en DAM.
-                Apasionado por crear software limpio y eficiente, con experiencia en
-                arquitectura hexagonal, APIs REST y herramientas de desarrollo como
-                Jira, Git y Bitbucket. Residente en Madrid, abierto a oportunidades
-                presenciales, remotas o híbridas.
-            </p>
+            <!-- ES: Enlaces del navbar (se ocultan en tablet/móvil, ver responsive.css).
+                EN: Navbar links (hidden on tablet/mobile, see responsive.css). -->
+            <ul class="nav-links">
+                <li><a href="#hero" data-i18n="nav.hero">Inicio</a></li>
+                <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="#certificates" data-i18n="nav.certificates">Certificados</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
 
-            <div class="hero-tags">
-                <span class="hero-tag">Java</span>
-                <span class="hero-tag">TypeScript</span>
-                <span class="hero-tag">Python</span>
-                <span class="hero-tag">JavaScript</span>
-                <span class="hero-tag">HTML5</span>
-                <span class="hero-tag">C#</span>
-                <span class="hero-tag">MySQL</span>
-                <span class="hero-tag">MongoDB</span>
-            </div>
+            <!-- ES: Botones de idioma, tema y menú hamburguesa.
+                EN: Language, theme and hamburger menu buttons. -->
+            <div class="nav-right">
+                <!-- ES: Alterna ES/EN - gestionado por scripts/language.js.
+                    EN: Toggles ES/EN - handled by scripts/language.js. -->
+                <button id="langToggle" class="theme-btn">EN</button>
 
-            <div class="hero-links">
-                <!-- GitHub -->
-                <a href="https://github.com/luckyandev" target="_blank" rel="noopener noreferrer"
-                    class="hero-link" data-tooltip="GitHub" data-tooltip-es="GitHub" data-tooltip-en="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener noreferrer"
-                    class="hero-link" data-tooltip="LinkedIn" data-tooltip-es="LinkedIn" data-tooltip-en="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-                <!-- Instagram 
-                <a href="https://www.instagram.com/.............." target="_blank" rel="noopener noreferrer"
-                    class="hero-link" data-tooltip="Instagram" data-tooltip-es="Instagram" data-tooltip-en="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a> -->
-
-                <!-- YouTube
-                <a href="https://www.youtube.com/.............." target="_blank" rel="noopener noreferrer"
-                    class="hero-link" data-tooltip="YouTube" data-tooltip-es="YouTube" data-tooltip-en="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a> -->
-
-                <!-- Email -->
-                <a href="mailto:lucasgimeno007@gmail.com" target="_blank" rel="noopener noreferrer"
-                    class="hero-link" data-tooltip="Correo" data-tooltip-es="Correo" data-tooltip-en="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-
-                <!-- CV -->
-                <a href="assets/CV/CV_Lucas_Gimeno.pdf" download class="hero-link"
-                    data-tooltip="Descargar CV" data-tooltip-es="Descargar CV" data-tooltip-en="Download CV">
-                    <i class="fa-solid fa-download"></i>
-                </a>
-            </div>
-
-            <!-- ES: Indicador de scroll animado / EN: Animated scroll indicator -->
-            <div class="scroll-hint">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
-                <span data-i18n="hero.scroll">Scroll para explorar</span>
-            </div>
-        </div>
-
-        <div class="hero-right">
-            <div class="hero-image-wrapper">
-                <div class="hero-circle hero-circle-1"></div>
-                <div class="hero-circle hero-circle-2"></div>
-                <div class="hero-ring"></div>
-                <div class="hero-ring hero-ring-2"></div>
-                <img src="assets/images/profile.png" alt="Lucas Gimeno" class="hero-img">
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ═════════════════ ABOUT ME ═════════════════ -->
-    <section id="about" class="fade-in">
-        <p class="section-label" data-i18n="about.label">// sobre mí</p>
-        <h2 class="section-title" data-i18n="about.title">SOBRE MÍ</h2>
-
-        <div class="about-grid">
-            <div class="about-text">
-                <p data-i18n="about.p1">
-                    Soy desarrollador backend con formación en Desarrollo de Aplicaciones Multiplataforma (DAM)
-                    y experiencia desarrollando software en entornos profesionales. Me apasiona escribir
-                    código limpio, bien estructurado y escalable.
-                </p>
-                <p data-i18n="about.p2">
-                    Durante mis prácticas participé en el desarrollo y evolución de aplicaciones backend en Java
-                    utilizando arquitectura hexagonal, trabajando también con TypeScript y canales SSE. Además,
-                    utilicé metodologías ágiles y herramientas como Git, Jira y Postman.
-                </p>
-                <p data-i18n="about.p3">
-                    Actualmente busco una oportunidad como desarrollador backend donde seguir creciendo, aportar
-                    valor desde el primer día y continuar aprendiendo junto a un equipo con experiencia.
-                </p>
-            </div>
-
-            <div class="about-info">
-                <!-- Location -->
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="info-label" data-i18n="about.location">Ubicación</div>
-                        <div class="info-value" data-i18n="about.city">Madrid, España</div>
-                    </div>
-                </div>
-
-                <!-- Availability -->
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="7" width="20" height="14" rx="2" />
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="info-label" data-i18n="about.availability">Disponibilidad</div>
-                        <div class="info-value" data-i18n="about.modes">Presencial · Remoto · Híbrido</div>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="info-label" data-i18n="about.education">Formación</div>
-                        <div class="info-value" data-i18n="about.degree">FPGS DAM</div>
-                    </div>
-                </div>
-
-                <!-- Main Focus -->
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6" />
-                            <polyline points="8 6 2 12 8 18" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="info-label" data-i18n="about.focus">Enfoque principal</div>
-                        <div class="info-value" data-i18n="about.stack">Backend · APIs REST · Java</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Estadísticas -->
-        <div class="about-stats">
-            <div class="stat-item">
-                <span class="stat-number">4+</span>
-                <span class="stat-label" data-i18n="about.month">Meses</span>
-            </div>
-
-            <div class="stat-item">
-                <span class="stat-number">1</span>
-                <span class="stat-label" data-i18n="about.project">Proyectos</span>
-            </div>
-
-            <div class="stat-item">
-                <span class="stat-number">1</span>
-                <span class="stat-label" data-i18n="about.certificate">Certificados</span>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ═════════════════ TIMELINE ═════════════════ -->
-    <section id="experience" class="fade-in">
-        <p class="section-label" data-i18n="exp.label">// trayectoria</p>
-        <h2 class="section-title" data-i18n="exp.title">MI EXPERIENCIA</h2>
-
-        <div class="timeline">
-            <!-- Timeline 1 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">03/2026 - 06/2026</div>
-                <div class="timeline-role" data-i18n="exp2.role">Desarrollador en Prácticas</div>
-                <div class="timeline-company">
-                    Indra Sistemas <span data-i18n="exp2.place">Torrejón de Ardoz, Madrid · Híbrido</span>
-                </div>
-                <div class="timeline-desc" data-i18n="exp2.desc">
-                    Desarrollo y extensión de funcionalidades en aplicaciones backend dentro de un entorno
-                    profesional real. Trabajé en la extensión de clases, métodos y canales SSE usando
-                    arquitectura hexagonal en Java. Gestión de versiones con Git y Bitbucket, seguimiento
-                    de tareas con Jira, y testing de APIs con Postman.
-                </div>
-                <div class="timeline-tags">
-                    <span class="timeline-tag">Java</span>
-                    <span class="timeline-tag">TypeScript</span>
-                    <span class="timeline-tag">SSE</span>
-                    <span class="timeline-tag">Git</span>
-                    <span class="timeline-tag">Bitbucket</span>
-                    <span class="timeline-tag">Jira</span>
-                    <span class="timeline-tag">Postman</span>
-                </div>
-            </div>
-
-            <!-- Timeline 2 -->
-            <div class="timeline-item">
-                <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
-                <div class="timeline-date">04/2023 - 06/2023</div>
-                <div class="timeline-role" data-i18n="exp1.role">Técnico Informático en Prácticas</div>
-                <div class="timeline-company">
-                    Viveverde <span data-i18n="exp1.place">Aranjuez, Madrid · Presencial</span>
-                </div>
-                <div class="timeline-desc" data-i18n="exp1.desc">
-                    Realicé tareas de soporte informático y administración de sistemas en un entorno empresarial,
-                    resolviendo incidencias técnicas relacionadas con equipos y redes. Participé en la instalación
-                    y configuración de sistemas de videovigilancia mediante cámaras PoE, así como en el mantenimiento
-                    y actualización de contenido web utilizando HTML y CSS. También colaboré en la gestión del
-                    inventario de equipos y recursos informáticos mediante herramientas ofimáticas.
-                </div>
-                <div class="timeline-tags">
-                    <span class="timeline-tag">Windows</span>
-                    <span class="timeline-tag">Networking</span>
-                    <span class="timeline-tag">PoE</span>
-                    <span class="timeline-tag">HTML</span>
-                    <span class="timeline-tag">CSS</span>
-                    <span class="timeline-tag">Hardware</span>
-                    <span class="timeline-tag">IT Support</span>
-                    <span class="timeline-tag">Microsoft Office</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ═════════════════ PROYECTOS ═════════════════ -->
-    <section id="projects" class="fade-in">
-        <p class="section-label" data-i18n="projects.label">// proyectos</p>
-        <h2 class="section-title" data-i18n="projects.title">PROYECTOS</h2>
-
-        <div class="projects-grid">
-            <!-- Proyecto 1 — Portfolio web -->
-            <div class="project-card">
-                <img src="assets/images/projects/project1.png" alt="Portfolio web" class="project-img">
-                <div class="project-body">
-                    <div class="project-title">Portfolio Personal</div>
-                    <div class="project-desc">Web portfolio personal con soporte multiidioma (ES/EN), modo claro/oscuro, animaciones y diseño responsive. Construida con HTML5, CSS3 y JavaScript vanilla.</div>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML5</span>
-                        <span class="project-tag">CSS3</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">i18n</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/lucasgimeno" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                            <span data-i18n="projects.github">Ver código</span>
-                        </a>
-                        <a href="#" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            <span data-i18n="projects.demo">Demo</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Proyecto 2 -->
-            <div class="project-card">
-                <img src="assets/images/projects/project2.png" alt="Proyecto 2" class="project-img">
-                <div class="project-body">
-                    <div class="project-title">[Nombre del proyecto]</div>
-                    <div class="project-desc">[Descripción breve del proyecto. Qué hace, qué problema resuelve, qué tecnologías usaste.]</div>
-                    <div class="project-tags">
-                        <span class="project-tag">[Tech 1]</span>
-                        <span class="project-tag">[Tech 2]</span>
-                        <span class="project-tag">[Tech 3]</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                            <span data-i18n="projects.github">Ver código</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Proyecto 3 — Coming soon -->
-            <div class="project-card coming-soon">
-                <div class="project-img-placeholder">{ próximamente }</div>
-                <div class="project-body">
-                    <div class="project-title" data-i18n="projects.coming">Próximamente</div>
-                    <div class="project-desc">Nuevo proyecto en desarrollo. ¡Vuelve pronto!</div>
-                    <div class="project-tags">
-                        <span class="project-tag">WIP</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Proyecto 4 — Coming soon -->
-            <div class="project-card coming-soon">
-                <div class="project-img-placeholder">{ próximamente }</div>
-                <div class="project-body">
-                    <div class="project-title" data-i18n="projects.coming">Próximamente</div>
-                    <div class="project-desc">Nuevo proyecto en desarrollo. ¡Vuelve pronto!</div>
-                    <div class="project-tags">
-                        <span class="project-tag">WIP</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ══════════════════════════════════════════
-       SKILLS
-  ══════════════════════════════════════════ -->
-    <section id="skills" class="fade-in">
-        <p class="section-label" data-i18n="skills.label">// tecnologías</p>
-        <h2 class="section-title" data-i18n="skills.title">SKILLS</h2>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-card-title">Backend</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Java</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">C#</span>
-                    <span class="skill-pill">TypeScript</span>
-                    <span class="skill-pill">PHP</span>
-                    <span class="skill-pill">VB.NET</span>
-                    <span class="skill-pill">REST APIs</span>
-                    <span class="skill-pill">Arq. Hexagonal</span>
-                    <span class="skill-pill">SSE</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-title">Frontend</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">HTML5</span>
-                    <span class="skill-pill">CSS3</span>
-                    <span class="skill-pill">WordPress</span>
-                    <span class="skill-pill">Wix</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-title">Bases de datos</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">MySQL</span>
-                    <span class="skill-pill">PostgreSQL</span>
-                    <span class="skill-pill">MongoDB</span>
-                    <span class="skill-pill">SQLite</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-title">Herramientas</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Git</span>
-                    <span class="skill-pill">Bitbucket</span>
-                    <span class="skill-pill">Jira</span>
-                    <span class="skill-pill">Postman</span>
-                    <span class="skill-pill">Android Studio</span>
-                    <span class="skill-pill">Unity</span>
-                    <span class="skill-pill">Odoo</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-title">Sistemas</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Linux</span>
-                    <span class="skill-pill">Windows Server</span>
-                    <span class="skill-pill">Redes</span>
-                    <span class="skill-pill">Hardware</span>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-card-title">Metodologías</div>
-                <div class="skill-pills">
-                    <span class="skill-pill">Agile / Scrum</span>
-                    <span class="skill-pill">Git Flow</span>
-                    <span class="skill-pill">Arq. Hexagonal</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ══════════════════════════════════════════
-       CERTIFICADOS
-  ══════════════════════════════════════════ -->
-    <section id="certificates" class="fade-in">
-        <p class="section-label" data-i18n="certificates.label">// certificados</p>
-        <h2 class="section-title" data-i18n="certificates.title">CERTIFICADOS</h2>
-
-        <div class="certificates-grid">
-
-            <!-- Certificado 1 — placeholder real -->
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                <!-- ES: Alterna modo claro/oscuro - gestionado por scripts/theme.js.
+                    EN: Toggles light/dark mode - handled by scripts/theme.js. -->
+                <button id="themeToggle" class="theme-btn">
+                    <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
                     </svg>
-                </div>
-                <div class="cert-name">[Nombre del certificado]</div>
-                <div class="cert-issuer">[Plataforma — ej: Coursera / Oracle / Google]</div>
-                <div class="cert-date">[Mes Año]</div>
-                <a href="#" target="_blank" rel="noopener" class="cert-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="certificates.ver">Ver certificado</span>
-                </a>
-            </div>
+                </button>
 
-            <!-- Certificado 2 — placeholder real -->
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                <!-- ES: Botón hamburguesa - solo visible en tablet/móvil.
+                    EN: Hamburger button - only visible on tablet/mobile. -->
+                <button id="hamburger" type="button" aria-expanded="false">
+                    <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line class="line line-top" x1="4" y1="6" x2="20" y2="6"/>
+                        <line class="line line-middle" x1="4" y1="12" x2="20" y2="12"/>
+                        <line class="line line-bottom" x1="4" y1="18" x2="20" y2="18"/>
                     </svg>
-                </div>
-                <div class="cert-name">[Nombre del certificado]</div>
-                <div class="cert-issuer">[Plataforma]</div>
-                <div class="cert-date">[Mes Año]</div>
-                <a href="#" target="_blank" rel="noopener" class="cert-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="certificates.ver">Ver certificado</span>
-                </a>
+                </button>
             </div>
+        </nav>
 
-            <!-- Certificado 3 — En progreso -->
-            <div class="cert-card placeholder">
-                <div class="cert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/>
-                    </svg>
-                </div>
-                <div class="cert-name">[Certificado en progreso]</div>
-                <div class="cert-issuer">[Plataforma]</div>
-                <div class="cert-date" data-i18n="certificates.pending">En progreso</div>
-            </div>
-
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ══════════════════════════════════════════
-       EDUCACIÓN
-  ══════════════════════════════════════════ -->
-    <section id="education" class="fade-in">
-        <p class="section-label" data-i18n="edu.label">// formación</p>
-        <h2 class="section-title" data-i18n="edu.title">EDUCACIÓN</h2>
-
-        <div class="edu-card">
-            <div class="edu-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-            </div>
-            <div>
-                <div class="edu-title" data-i18n="edu.dam">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</div>
-                <div class="edu-school">[Nombre del centro educativo]</div>
-                <div class="edu-year">[Año inicio] — [Año fin] · Madrid</div>
-            </div>
-        </div>
-
-        <div class="edu-card">
-            <div class="edu-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-            </div>
-            <div>
-                <div class="edu-title" data-i18n="edu.smr">Técnico en Sistemas Microinformáticos y Redes (SMR)</div>
-                <div class="edu-school">[Nombre del centro educativo]</div>
-                <div class="edu-year">[Año inicio] — [Año fin] · Madrid</div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ══════════════════════════════════════════
-       IDIOMAS
-  ══════════════════════════════════════════ -->
-    <section id="languages" class="fade-in">
-        <p class="section-label" data-i18n="lang.label">// idiomas</p>
-        <h2 class="section-title" data-i18n="lang.title">IDIOMAS</h2>
-
-        <div class="lang-grid">
-            <div class="lang-card">
-                <div class="lang-name" data-i18n="lang.es">Español</div>
-                <div class="lang-level" data-i18n="lang.es.nivel">Nativo</div>
-            </div>
-            <div class="lang-card">
-                <div class="lang-name" data-i18n="lang.en">Inglés</div>
-                <div class="lang-level">[Tu nivel — ej: B2]</div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider" />
-
-    <!-- ══════════════════════════════════════════
-       CONTACTO
-  ══════════════════════════════════════════ -->
-    <section id="contact" class="fade-in">
-        <p class="section-label" data-i18n="contact.label">// contacto</p>
-        <h2 class="section-title" data-i18n="contact.title">HABLEMOS</h2>
-        <p class="contact-subtitle" data-i18n="contact.sub">¿Tienes una oportunidad o quieres colaborar? Escríbeme.</p>
-
-        <div class="contact-links">
-            <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136
-            1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85
-            3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065
-            2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225
-            0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24
-            24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-                LinkedIn
-            </a>
-
-            <a href="https://github.com/lucasgimeno" target="_blank" rel="noopener" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-            0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695
-            -.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99
-            .105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225
-            -.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405
-            c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225
-            0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3
-            0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-                GitHub
-            </a>
-
-            <a href="mailto:[tu-email]" class="contact-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                Email
-            </a>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-        FOOTER
-    ══════════════════════════════════════════ -->
-    <footer>
-        <span data-i18n="footer.copy">© 2025 Lucas Gimeno · Desarrollador Backend</span>
-        <div class="footer-links">
-            <a href="#hero" data-i18n="nav.inicio">Inicio</a>
-            <a href="#about" data-i18n="nav.sobre">Sobre mí</a>
-            <a href="#journey" data-i18n="nav.experiencia">Experiencia</a>
-            <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <!-- ES: Menú móvil a pantalla completa - se abre al pulsar el hamburger.
+            EN: Full-screen mobile menu - opens on hamburger click. -->
+        <div id="mobileMenu">
+            <a href="#hero" data-i18n="nav.hero">Inicio</a>
+            <a href="#about" data-i18n="nav.about">Sobre mí</a>
+            <a href="#experience" data-i18n="nav.experience">Experiencia</a>
             <a href="#skills" data-i18n="nav.skills">Skills</a>
+            <a href="#projects" data-i18n="nav.projects">Proyectos</a>
             <a href="#certificates" data-i18n="nav.certificates">Certificados</a>
+            <a href="#contact" data-i18n="nav.contact">Contacto</a>
         </div>
-    </footer>
 
-    <!-- SCRIPTS -->
-    <script src="data/content-es.js"></script>
-    <script src="data/content-en.js"></script>
-    <script src="scripts/theme.js"></script>
-    <script src="scripts/animations.js"></script>
-    <script src="scripts/navbar.js"></script>
-    <script src="scripts/typing.js"></script>
-    <script src="scripts/language.js"></script>
+        <!-- ═════════════════ HERO ═════════════════ -->
+        <!-- ES: Sección principal - nombre, descripción, tags de tecnologías y avatar.
+            EN: Main section - name, description, technology tags and avatar. -->
+        <section id="hero">
+            <div class="hero-left">
+                <p class="hero-greeting" data-i18n="hero.greeting">Hola!👋</p>
 
-</body>
+                <!-- ES: #heroName es el objetivo del efecto de tipeo (ver scripts/typing.js).
+                    EN: #heroName is the target of the typing effect (see scripts/typing.js). -->
+                <h1 class="hero-name">
+                    <span data-i18n="hero.name">Soy</span>
+                    Lucas
+                    <span class="accent" id="heroName" data-text="Gimeno">Gimeno</span><span class="cursor"></span>
+                </h1>
 
+                <!-- ES: Pastilla de estado con punto verde animado (ver hero.css).
+                    EN: Status pill with animated green dot (see hero.css). -->
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    <span data-i18n="hero.status">Disponible para trabajar</span>
+                </div>
+
+                <p class="hero-desc" data-i18n="hero.desc">
+                    Desarrollador Backend especializado en Java, con formación en DAM.
+                    Apasionado por crear software limpio y eficiente, con experiencia en
+                    arquitectura hexagonal, APIs REST y herramientas de desarrollo como
+                    Jira, Git y Bitbucket. Residente en Madrid, abierto a oportunidades
+                    presenciales, remotas o híbridas.
+                </p>
+
+                <!-- ES: Tags de tecnologías principales.
+                    EN: Main technology tags. -->
+                <div class="hero-tags">
+                    <span class="hero-tag">Java</span>
+                    <span class="hero-tag">TypeScript</span>
+                    <span class="hero-tag">Python</span>
+                    <span class="hero-tag">JavaScript</span>
+                    <span class="hero-tag">HTML5</span>
+                    <span class="hero-tag">C#</span>
+                    <span class="hero-tag">MySQL</span>
+                </div>
+
+                <!-- ES: Iconos de redes sociales / contacto.
+                    EN: Social media / contact icons. -->
+                <div class="hero-links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/luckyandev" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="GitHub" data-tooltip-es="GitHub" data-tooltip-en="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="LinkedIn" data-tooltip-es="LinkedIn" data-tooltip-en="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <!-- Instagram 
+                    <a href="https://www.instagram.com/.............." target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="Instagram" data-tooltip-es="Instagram" data-tooltip-en="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a> -->
+
+                    <!-- YouTube
+                    <a href="https://www.youtube.com/.............." target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="YouTube" data-tooltip-es="YouTube" data-tooltip-en="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a> -->
+
+                    <!-- Email -->
+                    <a href="mailto:lucasgimeno007@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- ES: Indicador de scroll animado. / EN: Animated scroll indicator. -->
+                <div class="scroll-hint">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
+                    <span data-i18n="hero.scroll">Scroll para explorar</span>
+                </div>
+            </div>
+
+            <!-- ES: Avatar con círculos de brillo y anillos decorativos animados (ver hero.css).
+                EN: Avatar with glow circles and animated decorative rings (see hero.css). -->
+            <div class="hero-right">
+                <div class="hero-image-wrapper">
+                    <div class="hero-circle hero-circle-1"></div>
+                    <div class="hero-circle hero-circle-2"></div>
+                    <div class="hero-ring"></div>
+                    <div class="hero-ring hero-ring-2"></div>
+                    <img src="assets/images/profile.png" alt="Lucas Gimeno" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ SOBRE MÍ / ABOUT ME ═════════════════ -->
+        <section id="about" class="fade-in">
+            <p class="section-label" data-i18n="about.label">// sobre mí</p>
+            <h2 class="section-title" data-i18n="about.title">SOBRE MÍ</h2>
+
+            <!-- ES: Grid de 2 columnas: texto a la izquierda, info-cards a la derecha.
+                EN: 2-column grid: text on the left, info cards on the right. -->
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about.p1">
+                        Soy desarrollador backend con formación en Desarrollo de Aplicaciones Multiplataforma (DAM)
+                        y experiencia desarrollando software en entornos profesionales. Me apasiona escribir
+                        código limpio, bien estructurado y escalable.
+                    </p>
+                    <p data-i18n="about.p2">
+                        Durante mis prácticas participé en el desarrollo y evolución de aplicaciones backend en Java
+                        utilizando arquitectura hexagonal, trabajando también con TypeScript y canales SSE. Además,
+                        utilicé metodologías ágiles y herramientas como Git, Jira y Postman.
+                    </p>
+                    <p data-i18n="about.p3">
+                        Actualmente busco una oportunidad como desarrollador backend donde seguir creciendo, aportar
+                        valor desde el primer día y continuar aprendiendo junto a un equipo con experiencia.
+                    </p>
+                </div>
+
+                <!-- ES: Tarjetas de info rápida (ubicación, disponibilidad, formación, enfoque).
+                    EN: Quick info cards (location, availability, education, focus). -->
+                <div class="about-info">
+                    <!-- Location -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label" data-i18n="about.location">Ubicación</div>
+                            <div class="info-value" data-i18n="about.city">Madrid, España</div>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label" data-i18n="about.availability">Disponibilidad</div>
+                            <div class="info-value" data-i18n="about.modes">Presencial · Remoto · Híbrido</div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label" data-i18n="about.education">Formación</div>
+                            <div class="info-value" data-i18n="about.degree">FPGS DAM</div>
+                        </div>
+                    </div>
+
+                    <!-- Main Focus -->
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label" data-i18n="about.focus">Enfoque principal</div>
+                            <div class="info-value" data-i18n="about.stack">Backend · APIs REST · Java</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ES: Bloque de estadísticas - ocupa las 2 columnas del grid de arriba.
+                EN: Stats block - spans both columns of the grid above. -->
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label" data-i18n="about.month">Meses</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label" data-i18n="about.project">Proyectos</span>
+                </div>
+
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label" data-i18n="about.certificate">Certificados</span>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ EXPERIENCIA / TIMELINE ═════════════════ -->
+        <!-- ES: Historial laboral en formato línea de tiempo (ver experience.css).
+            EN: Work history as a vertical timeline (see experience.css). -->
+        <section id="experience" class="fade-in">
+            <p class="section-label" data-i18n="exp.label">// trayectoria</p>
+            <h2 class="section-title" data-i18n="exp.title">MI EXPERIENCIA</h2>
+
+            <div class="timeline">
+                <!-- Timeline 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">03/2026 - 06/2026</div>
+                    <div class="timeline-role" data-i18n="exp2.role">Desarrollador en Prácticas</div>
+                    <div class="timeline-company">
+                        Indra Sistemas <span data-i18n="exp2.place">Torrejón de Ardoz, Madrid · Híbrido</span>
+                    </div>
+                    <div class="timeline-desc" data-i18n="exp2.desc">
+                        Desarrollo y extensión de funcionalidades en aplicaciones backend dentro de un entorno
+                        profesional real. Trabajé en la extensión de clases, métodos y canales SSE usando
+                        arquitectura hexagonal en Java. Gestión de versiones con Git y Bitbucket, seguimiento
+                        de tareas con Jira, y testing de APIs con Postman.
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Java</span>
+                        <span class="timeline-tag">TypeScript</span>
+                        <span class="timeline-tag">SSE</span>
+                        <span class="timeline-tag">Git</span>
+                        <span class="timeline-tag">Bitbucket</span>
+                        <span class="timeline-tag">Jira</span>
+                        <span class="timeline-tag">Postman</span>
+                    </div>
+                </div>
+
+                <!-- Timeline 1 -->
+                <div class="timeline-item">
+                    <!-- ES: Punto de línea temporal atenuado (rol más antiguo).
+                        EN: Dimmed timeline dot (older role). -->
+                    <div class="timeline-dot" style="background: var(--bg3); border-color: var(--accent);"></div>
+                    <div class="timeline-date">04/2023 - 06/2023</div>
+                    <div class="timeline-role" data-i18n="exp1.role">Técnico Informático en Prácticas</div>
+                    <div class="timeline-company">
+                        Viveverde <span data-i18n="exp1.place">Aranjuez, Madrid · Presencial</span>
+                    </div>
+                    <div class="timeline-desc" data-i18n="exp1.desc">
+                        Realicé tareas de soporte informático y administración de sistemas en un entorno empresarial,
+                        resolviendo incidencias técnicas relacionadas con equipos y redes. Participé en la instalación
+                        y configuración de sistemas de videovigilancia mediante cámaras PoE, así como en el mantenimiento
+                        y actualización de contenido web utilizando HTML y CSS. También colaboré en la gestión del
+                        inventario de equipos y recursos informáticos mediante herramientas ofimáticas.
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Windows</span>
+                        <span class="timeline-tag">PoE</span>
+                        <span class="timeline-tag">HTML</span>
+                        <span class="timeline-tag">CSS</span>
+                        <span class="timeline-tag">Hardware</span>
+                        <span class="timeline-tag">IT Support</span>
+                        <span class="timeline-tag">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ SKILLS ═════════════════ -->
+        <!-- ES: Tarjetas de categoría con pills de tecnologías (ver skills.css).
+            EN: Category cards with technology pills (see skills.css). -->
+        <section id="skills" class="fade-in">
+            <p class="section-label" data-i18n="skills.label">// tecnologías</p>
+            <h2 class="section-title" data-i18n="skills.title">HABILIDADES</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-card-title">Backend</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Java</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">C#</span>
+                        <span class="skill-pill">TypeScript</span>
+                        <span class="skill-pill">PHP</span>
+                        <span class="skill-pill">VB.NET</span>
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">SSE</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-title">Frontend</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">WordPress</span>
+                        <span class="skill-pill">Wix</span>
+                        <span class="skill-pill">Blogger</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-title" data-i18n="skills.bd">Bases de datos</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">SQL</span>
+                        <span class="skill-pill">MySQL</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">MongoDB</span>
+                        <span class="skill-pill">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-title" data-i18n="skills.tools">Herramientas</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Git</span>
+                        <span class="skill-pill">GitHub</span>
+                        <span class="skill-pill">Bitbucket</span>
+                        <span class="skill-pill">Jira</span>
+                        <span class="skill-pill">Postman</span>
+                        <span class="skill-pill">Docker</span>
+                        <span class="skill-pill">AWS Cloud</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-title" data-i18n="skills.systems">Sistemas</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Linux</span>
+                        <span class="skill-pill">Windows Server</span>
+                        <span class="skill-pill">Ubuntu Server</span>
+                        <span class="skill-pill">TCP/IP</span>
+                        <span class="skill-pill">Networking</span>
+                        <span class="skill-pill">Hardware</span>
+                        <span class="skill-pill">PowerShell</span>
+                        <span class="skill-pill">Cisco Packet Tracer</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-title" data-i18n="skills.methodologies">Metodologías</div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Agile / Scrum</span>
+                        <span class="skill-pill">Git Flow</span>
+                        <span class="skill-pill">Hexagonal Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ PROYECTOS / PROJECTS ═════════════════ -->
+        <!-- ES: Solo se muestran los proyectos destacados.
+                El catálogo completo, con buscador y filtros, vive en projects.html
+                (ver "Ver todos los proyectos" al final de la grid).
+            EN: Only the featured projects are shown here.
+                The full catalog, with search and filters, lives in projects.html
+                (see "View all projects" at the end of the grid). -->
+        <section id="projects" class="fade-in">
+            <p class="section-label" data-i18n="projects.label">// proyectos</p>
+            <h2 class="section-title" data-i18n="projects.title">PROYECTOS</h2>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="assets/images/projects/portfolio.png" class="project-img">
+                    <div class="project-body">
+                        <div class="project-title" data-i18n="project1.title">Portfolio Personal</div>
+                        <div class="project-desc" data-i18n="project1.desc">Web portfolio personal con soporte multiidioma (ES/EN), modo claro/oscuro, animaciones y diseño responsive. Construida con HTML5, CSS3 y JavaScript vanilla.</div>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">i18n</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/luckyandev/portfolio.dev" target="_blank" rel="noopener" class="project-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span data-i18n="projects.github">Ver código</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 — Coming soon -->
+                <div class="project-card coming-soon">
+                    <div class="project-img-placeholder" data-i18n="projects.coming.placeholder">{ próximamente }</div>
+                    <div class="project-body">
+                        <div class="project-title" data-i18n="projects.coming">Próximamente</div>
+                        <div class="project-desc" data-i18n="projects.coming.desc">Nuevo proyecto en desarrollo. ¡Vuelve pronto!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ES: Enlace al catálogo completo de proyectos (projects.html).
+                EN: Link to the full project catalog (projects.html). -->
+            <div class="catalog-viewall">
+                <a href="projects.html">
+                    <span data-i18n="catalog.viewall.projects">Ver todos los proyectos</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ CERTIFICADOS / CERTIFICATES ═════════════════ -->
+        <!-- ES: Igual que en Proyectos, solo se muestran los destacados.
+                El catálogo completo vive en certificates.html.
+            EN: Same as Projects, only the featured ones are shown here.
+                The full catalog lives in certificates.html. -->
+        <section id="certificates" class="fade-in">
+            <p class="section-label" data-i18n="certificates.label">// certificados</p>
+            <h2 class="section-title" data-i18n="certificates.title">CERTIFICADOS</h2>
+
+            <div class="certificates-grid">
+                <!-- Certificado 1 - placeholder real
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                        </svg>
+                    </div>
+                    <div class="cert-name" data-i18n="certificate1.title">[Nombre del certificado]</div>
+                    <div class="cert-issuer" data-i18n="certificate1.platform">[Plataforma — ej: Coursera / Oracle / Google]</div>
+                    <div class="cert-date" data-i18n="certificate1.date">[Mes Año]</div>
+                    <a href="#" target="_blank" rel="noopener" class="cert-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        <span data-i18n="certificates.view">Ver certificado</span>
+                    </a>
+                </div>  -->
+
+                <!-- Certificado 1 - En progreso -->
+                <div class="cert-card placeholder">
+                    <div class="cert-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div class="cert-name" data-i18n="certificates.coming">[Certificado en progreso]</div>
+                    <div class="cert-issuer" data-i18n="certificates.coming.placeholder">[Plataforma]</div>
+                    <div class="cert-date" data-i18n="certificates.coming.desc">Nuevo certificado en progreso. ¡Vuelve pronto!</div>
+                </div>
+            </div>
+
+            <!-- ES: Enlace al catálogo completo de certificados (certificates.html).
+                EN: Link to the full certificate catalog (certificates.html). -->
+            <div class="catalog-viewall">
+                <a href="certificates.html">
+                    <span data-i18n="catalog.viewall.certificates">Ver todos los certificados</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ EDUCACIÓN + IDIOMAS / EDUCATION + LANGUAGES ═════════════════ -->
+        <!-- ES: Educación e Idiomas comparten sección, en un grid de 2 columnas
+                iguales (ver .edu-lang-grid en experience.css). En tablet/móvil
+                se apilan en una sola columna (Educación primero).
+            EN: Education and Languages share a section, in a 2 equal-width
+                column grid (see .edu-lang-grid in experience.css). On
+                tablet/mobile they stack into a single column (Education first). -->
+        <section id="education" class="fade-in">
+            <p class="section-label" data-i18n="edu.label">// formación</p>
+
+            <div class="edu-lang-grid">
+                <div class="edu-lang-col">
+                    <h2 class="section-title" data-i18n="edu.title">EDUCACIÓN</h2>
+
+                    <div class="edu-card">
+                        <div class="edu-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="edu-title" data-i18n="edu.dam">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</div>
+                            <div class="edu-school">IES Domenico Scarlatti</div>
+                            <div class="edu-year">09/2023 - 06/2026 · Aranjuez, Madrid</div>
+                        </div>
+                    </div>
+
+                    <div class="edu-card">
+                        <div class="edu-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="edu-title" data-i18n="edu.smr">Técnico en Sistemas Microinformáticos y Redes (SMR)</div>
+                            <div class="edu-school">IES Domenico Scarlatti</div>
+                            <div class="edu-year">09/2021 - 06/2023 · Aranjuez, Madrid</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-lang-col">
+                    <h2 class="section-title" data-i18n="lang.title">IDIOMAS</h2>
+
+                    <div class="lang-card">
+                        <div class="lang-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="lang-name" data-i18n="lang.es">Español</div>
+                            <div class="lang-level" data-i18n="lang.es.level">Nativo</div>
+                        </div>
+                    </div>
+
+                    <div class="lang-card">
+                        <div class="lang-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="lang-name" data-i18n="lang.en">Inglés</div>
+                            <div class="lang-level" data-i18n="lang.en.level">Intermedio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- ═════════════════ CONTACTO / CONTACT ═════════════════ -->
+        <section id="contact" class="fade-in">
+            <p class="section-label" data-i18n="contact.label">// contacto</p>
+            <h2 class="section-title" data-i18n="contact.title">HABLEMOS</h2>
+            <p class="contact-subtitle" data-i18n="contact.sub">¿Tienes una oportunidad o quieres colaborar? Escríbeme.</p>
+
+            <!-- ES: Reutiliza los mismos iconos/estilos que hero-links.
+                EN: Reuses the same icons/styles as hero-links. -->
+            <div class="contact-links">
+                    <!-- GitHub -->
+                    <a href="https://github.com/luckyandev" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="GitHub" data-tooltip-es="GitHub" data-tooltip-en="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="LinkedIn" data-tooltip-es="LinkedIn" data-tooltip-en="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <!-- Instagram 
+                    <a href="https://www.instagram.com/.............." target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="Instagram" data-tooltip-es="Instagram" data-tooltip-en="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a> -->
+
+                    <!-- YouTube
+                    <a href="https://www.youtube.com/.............." target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="YouTube" data-tooltip-es="YouTube" data-tooltip-en="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a> -->
+
+                    <!-- Email -->
+                    <a href="mailto:lucasgimeno007@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="hero-link" data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+            </div>
+        </section>
+
+        <!-- ═════════════════ FOOTER ═════════════════ -->
+        <footer>
+            <span data-i18n="footer.copy">© 2026 Lucas Gimeno · Desarrollador Backend</span>
+            <div class="footer-links">
+                <a href="#hero" data-i18n="nav.hero">Inicio</a>
+                <a href="#about" data-i18n="nav.about">Sobre mí</a>
+                <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+                <a href="#certificates" data-i18n="nav.certificates">Certificados</a>
+            </div>
+        </footer>
+
+        <!-- ES: Scripts al final del body para no bloquear el renderizado.
+                El orden importa: content-es/en antes que language.js.
+            EN: Scripts at the end of body so they don't block rendering.
+                Order matters: content-es/en must load before language.js. -->
+        <script src="data/content-en.js"></script>
+        <script src="data/content-es.js"></script>
+        <script src="scripts/animations.js"></script>
+        <script src="scripts/language.js"></script>
+        <script src="scripts/navbar.js"></script>
+        <script src="scripts/theme.js"></script>
+        <script src="scripts/typing.js"></script>
+    </body>
 </html>

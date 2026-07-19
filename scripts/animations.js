@@ -1,4 +1,4 @@
-/* ============================================================
+/*  ============================================================
     ANIMATIONS.JS - scripts/animations.js
     ES: Animaciones de scroll con IntersectionObserver.
         Cuando un elemento con clase .fade-in entra en el
@@ -8,7 +8,7 @@
         When an element with the .fade-in class enters the
         viewport, we add the .visible class, which is what
         actually triggers the transition in animations.css.
-   ============================================================ */
+    ============================================================  */
     
 function initAnimations() {
     const observer = new IntersectionObserver((entries) => {

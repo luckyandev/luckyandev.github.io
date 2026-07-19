@@ -1,13 +1,13 @@
-/* ==========================================================
-    SKILLS - styles/skills.css
+/*  ==========================================================
+    SKILLS.CSS - styles/skills.css
     ES: Estilos de la seccion "Skills" - tarjetas de categoria
         con pildoras (pills) de tecnologias.
     EN: Styles for the "Skills" section - category cards with
         technology pills.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Grid de 2 columnas con las tarjetas de categoria.
-   EN: 2-column grid with the category cards. */
+/*  ES: Grid de 2 columnas con las tarjetas de categoria.
+    EN: 2-column grid with the category cards.  */
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -19,14 +19,16 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 1.25rem;
-    transition: border-color var(--transition);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .skill-card:hover {
-    border-color: rgba(79, 142, 247, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(79, 142, 247, .28);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .16), var(--hover-glow);
 }
 
-/* ES: Titulo de la categoria (ej. "LENGUAJES", "HERRAMIENTAS").
-   EN: Category heading (e.g. "LANGUAGES", "TOOLS"). */
+/*  ES: Titulo de la categoria (ej. "LENGUAJES", "HERRAMIENTAS").
+    EN: Category heading (e.g. "LANGUAGES", "TOOLS").  */
 .skill-card-title {
     font-size: 0.75rem;
     font-weight: 600;
@@ -42,8 +44,8 @@
     gap: 0.4rem;
 }
 
-/* ES: Pildora individual de tecnologia.
-   EN: Individual technology pill. */
+/*  ES: Pildora individual de tecnologia.
+    EN: Individual technology pill.  */
 .skill-pill {
     background: var(--bg3);
     color: var(--text2);

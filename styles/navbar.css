@@ -1,11 +1,11 @@
-/* ==========================================================
-    NAVBAR - styles/navbar.css
+/*  ==========================================================
+    NAVBAR.CSS - styles/navbar.css
     ES: Estilos de la barra de navegación flotante superior.
     EN: Styles for the top floating navigation bar.
-   ========================================================== */
+    ==========================================================  */
     
-/* ES: Contenedor principal del nav.
-    EN: Main navigation container. */
+/*  ES: Contenedor principal del nav.
+    EN: Main navigation container.  */
 nav {
     position: fixed;
     top: 18px;
@@ -16,6 +16,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     padding: 0 1.75rem;
     z-index: 100;
     background: var(--nav-bg);
@@ -24,7 +25,7 @@ nav {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: var(--nav-shadow);
-    transition: all .35s ease;
+    transition: background .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
 /* ES/EN: Logo. */
@@ -41,14 +42,13 @@ nav {
 
 /* ES/EN: Nav Links. */
 .nav-links{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:650px;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
+    gap: clamp(.15rem, 1.4vw, 1.1rem);
     list-style:none;
+    flex: 1;
+    min-width: 0;
 }
 .nav-links a{
     position:relative;
@@ -87,8 +87,8 @@ nav {
     width:calc(100% - 1.3rem);
 }
 
-/* ES: Botones derecha (idioma, tema y hamburger).
-   EN: Right side buttons (language, theme and hamburger). */
+/*  ES: Botones derecha (idioma, tema y hamburger).
+    EN: Right side buttons (language, theme and hamburger).  */
 .nav-right{
     display:flex;
     align-items:center;
@@ -144,16 +144,16 @@ nav {
     box-shadow: 0 6px 18px rgba(79,142,247,.12), var(--hover-glow);
 }
 
-/* ES: Botón idioma activo.
-   EN: Active language button. */
+/*  ES: Botón idioma activo.
+    EN: Active language button.  */
 #langToggle.active{
     color:var(--accent);
     border-color:rgba(79,142,247,.35);
     background: linear-gradient(135deg, rgba(79,142,247,.12), rgba(124,58,237,.10));
 }
 
-/* ES: Animación iconos.
-   EN: Icon animations. */
+/*  ES: Animación iconos.
+    EN: Icon animations.  */
 .theme-btn svg,
 #hamburger svg{
     transition: transform .3s ease, opacity .25s ease;
@@ -165,8 +165,8 @@ nav {
     transform:rotate(90deg);
 }
 
-/* ES: Menú móvil (links).
-   EN: Mobile menu (links). */
+/*  ES: Menú móvil (links).
+    EN: Mobile menu (links).  */
 #mobileMenu{
     position:fixed;
     inset:0;
