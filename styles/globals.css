@@ -21,6 +21,7 @@
     EN: Smooth scroll when navigating to anchors.  */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /*  ES: Estilos base del body - fuente, color de fondo/texto

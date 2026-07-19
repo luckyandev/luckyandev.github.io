@@ -16,6 +16,22 @@ function initNavbar() {
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
 
+    /*  ES: Navegación interna sin tocar la URL - hace scroll suave al
+            destino pero evita que el navegador añada el "#seccion"
+            a la barra de direcciones.
+        EN: Internal navigation without touching the URL - smooth
+            scrolls to the target but stops the browser from adding
+            "#section" to the address bar.  */
+    function scrollToSection(e) {
+        e.preventDefault();
+        const targetId = e.currentTarget.getAttribute("href");
+        const target = document.querySelector(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    navLinks.forEach(link => link.addEventListener("click", scrollToSection));
+
     /*  ES: Detectamos qué sección ocupa el viewport y
             marcamos el enlace correspondiente.
         EN: Detect which section is currently visible and

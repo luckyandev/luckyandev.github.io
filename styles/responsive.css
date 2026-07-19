@@ -210,13 +210,6 @@
         gap: 1rem;
     }
 
-    /*  ES: Links de contacto en columna en móvil.
-        EN: Contact links stacked on mobile.  */
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
     /*  ES: Timeline con menos padding lateral.
         EN: Timeline with less horizontal padding.  */
     .timeline-item {

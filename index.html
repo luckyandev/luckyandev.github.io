@@ -28,7 +28,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- ES: Hojas de estilo propias, el orden de carga importa. | EN: Own stylesheets, load order matters. -->
         <link rel="stylesheet" href="styles/variables.css" />
@@ -183,8 +185,9 @@
                     </a> -->
 
                     <!-- Email -->
-                    <a href="mailto:lucasgimeno007@gmail.com" target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
+                    <a href="#" class="hero-link js-email-link" data-user="lucasgimeno007" data-domain="gmail.com"
+                        target="_blank" rel="noopener noreferrer"
+                        data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
                 </div>
@@ -673,35 +676,36 @@
             <!-- ES: Reutiliza los mismos iconos/estilos que hero-links.
                 EN: Reuses the same icons/styles as hero-links. -->
             <div class="contact-links">
-                    <!-- GitHub -->
-                    <a href="https://github.com/luckyandev" target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="GitHub" data-tooltip-es="GitHub" data-tooltip-en="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
+                <!-- GitHub -->
+                <a href="https://github.com/luckyandev" target="_blank" rel="noopener noreferrer"
+                    class="hero-link" data-tooltip="GitHub" data-tooltip-es="GitHub" data-tooltip-en="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
 
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="LinkedIn" data-tooltip-es="LinkedIn" data-tooltip-en="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/lucasgimeno" target="_blank" rel="noopener noreferrer"
+                    class="hero-link" data-tooltip="LinkedIn" data-tooltip-es="LinkedIn" data-tooltip-en="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
 
-                    <!-- Instagram 
-                    <a href="https://www.instagram.com/.............." target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="Instagram" data-tooltip-es="Instagram" data-tooltip-en="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a> -->
+                <!-- Instagram 
+                <a href="https://www.instagram.com/.............." target="_blank" rel="noopener noreferrer"
+                    class="hero-link" data-tooltip="Instagram" data-tooltip-es="Instagram" data-tooltip-en="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a> -->
 
-                    <!-- YouTube
-                    <a href="https://www.youtube.com/.............." target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="YouTube" data-tooltip-es="YouTube" data-tooltip-en="YouTube">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a> -->
+                <!-- YouTube
+                <a href="https://www.youtube.com/.............." target="_blank" rel="noopener noreferrer"
+                    class="hero-link" data-tooltip="YouTube" data-tooltip-es="YouTube" data-tooltip-en="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a> -->
 
-                    <!-- Email -->
-                    <a href="mailto:lucasgimeno007@gmail.com" target="_blank" rel="noopener noreferrer"
-                        class="hero-link" data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
+                <!-- Email -->
+                <a href="#" class="hero-link js-email-link" data-user="lucasgimeno007" data-domain="gmail.com"
+                    target="_blank" rel="noopener noreferrer"
+                    data-tooltip="Correo" data-tooltip-es="Email" data-tooltip-en="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
             </div>
         </section>
 
@@ -729,5 +733,6 @@
         <script src="scripts/navbar.js"></script>
         <script src="scripts/theme.js"></script>
         <script src="scripts/typing.js"></script>
+        <script src="scripts/email-protect.js"></script>
     </body>
 </html>
